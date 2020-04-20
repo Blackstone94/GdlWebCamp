@@ -61,7 +61,7 @@
   </div><!--Barra-->
 
   <section class="seccion contenedor">
-  
+
     <h2>Registro de usuarios</h2>
     <form id="registro" class="registro" action="index.html" method="POST">
       <div id="datos_usuario" class="clearfix registro caja">
@@ -77,6 +77,58 @@
           <label for="e-mail">E-mail</label>
           <input type="text" id="e-mail" placeholder="Tu e-mail" name="e-mail">
         </div>
+        <div class="erro"></div>
+      </div><!--datos usuario-->
+      <div class="paquetes" id="paquetes">
+        <h3>Elige el numero de boletos</h3>
+
+        <ul class="lista-precios clearfix">
+          <li>
+            <div class="tabla-precios">
+              <h3>Precio por dia</h3>
+              <p class="numero">$30.00</p>
+              <ul>
+                <li><i class="fas fa-check"></i>Bocadillos Gratis</li>
+                <li><i class="fas fa-check"></i>Todas las conferencias</li>
+                <li><i class="fas fa-check"></i>Todos los talleres</li>
+              </ul>
+              <div class="orden">
+                <label for="pase_dia">Boletos desados:</label>
+                <input type="number" min="0" placeholder="0" size="3" id="pase_dia">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="tabla-precios">
+              <h3>Todos los dias</h3>
+              <p class="numero">$50.00</p>
+              <ul>
+                <li><i class="fas fa-check"></i>Bocadillos Gratis</li>
+                <li><i class="fas fa-check"></i>Todas las conferencias</li>
+                <li><i class="fas fa-check"></i>Todos los talleres</li>
+              </ul>
+              <div class="orden">
+                <label for="pase_completo">Boletos desados:</label>
+                <input type="number" min="0" placeholder="0" size="3" id="pase_completo">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="tabla-precios">
+              <h3>Pase por dos dias</h3>
+              <p class="numero">$45.00</p>
+              <ul>
+                <li><i class="fas fa-check"></i>Bocadillos Gratis</li>
+                <li><i class="fas fa-check"></i>Todas las conferencias</li>
+                <li><i class="fas fa-check"></i>Todos los talleres</li>
+              </ul>
+              <div class="orden">
+                <label for="pase_dosDias">Boletos desados:</label>
+                <input type="number" min="0" placeholder="0" size="3" id="pase_dosDias">
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </form>
   </section>
