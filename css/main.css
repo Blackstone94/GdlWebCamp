@@ -834,6 +834,16 @@ div.resumen input{
   display:block;
   margin: 10px auto;
 }
+#lista-productos{
+  background-color: #e1e1e1;
+  padding: 20px;
+  display: none;
+}
+#suma-total{
+  font-size: 2em;
+  text-align: center;
+  color: #fe4918;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
