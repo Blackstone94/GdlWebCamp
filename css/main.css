@@ -742,6 +742,11 @@ footer .ultimos-tweets li{
 
 /************************INTERNAS*******************************************/
 /*************************REGISTRO*********************************************/
+#error{
+  clear: both;
+  padding: 20px;
+  text-align: center;
+}
 form.registro h3{
   text-transform: uppercase;
   text-align: center;
@@ -809,6 +814,7 @@ div.paquetes .tabla-precios input{
 }
 
 /*****************RESUMEN REGISTRO************************/
+
 div.resmen p{
   font-size: 1.2em;
   text-transform: uppercase;
