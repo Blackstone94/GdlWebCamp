@@ -23,7 +23,10 @@
        var etiquetas=document.getElementById('etiquetas');
 
        calcular.addEventListener('click',calcularMontos);
-       
+       pase_dia.addEventListener('blur',mostrarDias);
+       pase_completo.addEventListener('blur',mostrarDias);
+       pase_dosDias.addEventListener('blur',mostrarDias);
+
        function calcularMontos(event){
             event.preventDefault();
             if(regalo.value==''){
@@ -65,7 +68,26 @@
                 }
                 suma.innerHTML= "$ "+totalApagar.toFixed(2);
             }//elegir regalo
+       }//calcular montos
 
+       function mostrarDias(){
+        var boletoDia=parseInt(pase_dia.value,10) || 0 ,
+        boleto2Dias=parseInt(pase_dosDias.value,10) || 0 ,
+        boletoCompleto=parseInt(pase_completo.value,10) || 0;
+
+           var diasElegidos=[];
+           if(boletoDia>0){
+               diasElegidos.push('viernes');
+           }
+           if(boleto2Dias>0){
+               diasElegidos.push('viernes','sabado');
+           }
+           if(boletoCompleto>0){
+                diasElegidos.push('viernes','sabado','domingo');
+           }
+           for(var i=0;i<diasElegidos.length;i++){
+               document.getElementById(diasElegidos[i]).style.display='block';
+           }
        }
     });//Dom cargado
 })();

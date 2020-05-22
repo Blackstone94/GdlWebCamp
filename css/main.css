@@ -785,7 +785,7 @@ div.paquetes .tabla-precios input{
 }
 .contenido-dia{
   padding: 20px;
-  /*display:none;*/
+  display:none;
 }
 @media only screen and (min-width:768px){
   .contenido-dia > div{
