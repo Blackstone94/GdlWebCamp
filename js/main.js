@@ -116,10 +116,15 @@
                document.getElementById(diasElegidos[i]).style.display='block';
            }
        }
+
+
     });//Dom cargado
 })();
 
-$(function(){/*cursos*/
+$(function(){
+
+  /*Lettering*/
+  $('.nombre-sitio').lettering();
   /*talleres*/
   $('div.ocultar').hide();
   $('.programa-evento .info-curso:first').show();
@@ -140,4 +145,11 @@ $(function(){/*cursos*/
   $('.resumen-evento li:nth-child(3) p').animateNumber({number: 3},1500);
   $('.resumen-evento li:nth-child(4) p').animateNumber({number: 9},1200);
 
+  /**Cuenta regresiva*/
+  $('.cuenta-regresiva').countdown('2020/09/04 00:08:00',function(event){
+      $('#dias').html(event.strftime('%D'));
+      $('#horas').html(event.strftime('%H'));
+      $('#minutos').html(event.strftime('%M'));
+      $('#segundos').html(event.strftime('%S'));
+  });
 });
