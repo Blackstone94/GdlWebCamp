@@ -17,7 +17,7 @@
        var botonRegistro=document.getElementById("btnRegistro");
        var lista_productos=document.getElementById("lista-productos");
        var suma=document.getElementById("suma-total");
-       
+
        //extras
        var camisas=document.getElementById('camisa_evento');
        var etiquetas=document.getElementById('etiquetas');
@@ -26,7 +26,7 @@
        pase_dia.addEventListener('blur',mostrarDias);
        pase_completo.addEventListener('blur',mostrarDias);
        pase_dosDias.addEventListener('blur',mostrarDias);
-       
+
        nombre.addEventListener('blur',validarCampos);
        apellido.addEventListener('blur',validarCampos);
        email.addEventListener('blur',validarCampos);
@@ -65,7 +65,7 @@
                 boletosCompleto=parseInt(pase_completo.value,10) || 0 ,
                 cantCamisas=parseInt(camisas.value,10) || 0 ,
                 cantEtiquetas=parseInt(etiquetas.value,10) || 0 ;
-                
+
                 var totalApagar=(boletosDia*30)+(boletos2Dias*45)+(boletosCompleto*50)+
                 ((cantCamisas*10)*.93)+(cantEtiquetas*10);
                 console.log("total "+totalApagar);
@@ -87,7 +87,7 @@
                     listadoProductos.push(cantEtiquetas+" Etiquetas");
                 }
                 console.log(listadoProductos);
-                
+
                 lista_productos.innerHTML='';
                 lista_productos.style.display="block";
                 for(var i=0; i<listadoProductos.length;i++){
@@ -118,3 +118,26 @@
        }
     });//Dom cargado
 })();
+
+$(function(){/*cursos*/
+  /*talleres*/
+  $('div.ocultar').hide();
+  $('.programa-evento .info-curso:first').show();
+  $('.menu-programa a:first').addClass('activo');
+
+  $('.menu-programa a').on('click',function(){
+    $('.menu-programa a').removeClass('activo');
+    $('.ocultar').hide();
+    var enlacePrecionado=$(this).attr("href");
+    $(this).addClass('activo');
+    $(enlacePrecionado).fadeIn(1000);
+      return false;
+  });
+
+  /**Animaciones numeros*/
+  $('.resumen-evento li:nth-child(1) p').animateNumber({number: 6},1000);
+  $('.resumen-evento li:nth-child(2) p').animateNumber({number: 15},1200);
+  $('.resumen-evento li:nth-child(3) p').animateNumber({number: 3},1500);
+  $('.resumen-evento li:nth-child(4) p').animateNumber({number: 9},1200);
+
+});

@@ -144,7 +144,7 @@ h3{
 .button.hollow{
   background-color: white;
   color: #fe4918;
-  
+
 }
 .button.hollow:hover{
   background-color: gainsboro;
@@ -169,7 +169,7 @@ h3{
   margin: 0 auto;
 }
 .seccion{
-  padding: 30px 0; 
+  padding: 30px 0;
 }
 .seccion p{
   font-size: 1.2em;
@@ -249,7 +249,7 @@ div.informacion-evento p{
 }
 
 div.informacion-evento p i{
-  color:#fe4918;  
+  color:#fe4918;
   font-size: 2rem;
 }
 p.fecha{/*separar elementos*/
@@ -302,7 +302,7 @@ nav.navegacion-principal a{
   text-decoration: none;
   font-size: 1.4em;
   text-transform: uppercase;
-  transition: all .5s ease; 
+  transition: all .5s ease;
   width: 100%;
   display: block;
   text-align: center;
@@ -385,7 +385,6 @@ div.programa-evento{
 nav.menu-programa{
   width: 100%;
   border-bottom: 1px solid #fe4918;
-  padding-bottom: 10px;
 }
 nav.menu-programa a{
   display: block;
@@ -395,7 +394,21 @@ nav.menu-programa a{
   font-family: 'Oswald',sans-serif;
   margin-bottom: 10px;
   font-size: 1.2em;
+  position: relative;
+  padding-bottom: 10px;
 }
+nav.menu-programa a.activo:after{
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20px;
+  background: url('../img/talleres-flecha.jpg') top center no-repeat;
+  bottom: -20px;
+}
+
 nav.menu-programa a i,
 div.detalle-evento i{
   color: #fe4918;
@@ -432,7 +445,7 @@ ul.lista-invitados li{
 }
 @media only screen and (min-width:480px){
   ul.lista-invitados li{
-    width: 50%; 
+    width: 50%;
   }
 }
 @media only screen and (min-width:768px){
@@ -482,7 +495,7 @@ div.invitado:hover p{/*efecta al parrafo*/
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  
+
   -webkit-filter: brightness(.8);
   filter: brightness(.8);
 }
@@ -544,7 +557,7 @@ div.tabla-precios{
   border: 1px solid #e1e1e1;
   background-color: white;
   padding: 40px 0;
-  text-align: center; 
+  text-align: center;
   transition: all .3s ease;
 }
 div.tabla-precios:hover{
@@ -631,7 +644,7 @@ footer.info-testimonial img{
 footer.info-testimonial cite{
   color: #fe4918;
   text-align: center;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   font-size: 20px;
   padding-top:20px;
   font-weight: bold;
@@ -755,7 +768,7 @@ form.registro h3{
 form.registro label{
   margin-bottom: 5px;
   font-weight: bold;
-} 
+}
 h4{
   text-align: center;
   text-transform: uppercase;
