@@ -202,6 +202,9 @@ img{
     max-width: 1100px;
   }
 }
+.centrar-texto{
+  text-align: center;
+}
 /******************LETTERING*******/
 h1.nombre-sitio span{
   position: relative;
@@ -790,6 +793,17 @@ footer .ultimos-tweets li{
 }
 
 /************************INTERNAS*******************************************/
+/***************************************conferencia ***************************************/
+.navegacion-principal .activo{
+  border-bottom: 1px solid #e33000;
+}
+div.galeria a{
+  display: inline-block;
+  margin-bottom: 10px;
+}
+div.galeria img{
+  width: auto;
+}
 /*************************REGISTRO*********************************************/
 #error{
   clear: both;
