@@ -319,6 +319,13 @@ h1.nombre-sitio{
 .barra{
   background-color: #353535;
 }
+.fixed{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
 div.logo{
   width: 70%;
   float: left;

@@ -1,6 +1,9 @@
 (function(){
     "use strict";
     document.addEventListener('DOMContentLoaded',function(){
+      //barra
+
+
        // variable usuario
        var nombre=document.getElementById("nombre");
        var apellido=document.getElementById("apellido");
@@ -125,6 +128,21 @@ $(function(){
 
   /*Lettering*/
   $('.nombre-sitio').lettering();
+
+  //Menu fijo
+  var windowHeight=$(window).height();
+  var barraAltura=$('.barra').innerHeight();
+  $(window).scroll(function(){
+    var scroll=$(window).scrollTop();
+    if(scroll > windowHeight){
+      $('.barra').addClass('fixed');
+      $('body').css({'margin-top':barraAltura+'px'});
+    }else{
+      $('.barra').removeClass('fixed');
+      $('body').css({'margin-top':'0px'});
+    }
+  });
+
   /*talleres*/
   $('div.ocultar').hide();
   $('.programa-evento .info-curso:first').show();
