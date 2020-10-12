@@ -233,4 +233,3 @@
     </section><!--Seccion cuenta regresiva-->
 
 <?php include_once 'includes/templates/footer.php'?>
-
