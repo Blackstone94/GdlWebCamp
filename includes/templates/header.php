@@ -57,10 +57,10 @@
           <span></span>
         </div>
         <nav class="navegacion-principal clearfix">
-          <a href="conferencia.html">Conferencia</a>
-          <a href="#">Calendario</a>
+          <a href="conferencia.php">Conferencia</a>
+          <a href="calendario.php">Calendario</a>
           <a href="#">Invitados</a>
-          <a href="registro.html">Reservaciones</a>
+          <a href="registro.php">Reservaciones</a>
         </nav>
       </div><!--contenedor-->
     </div><!--Barra-->
