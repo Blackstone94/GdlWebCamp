@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
 
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
