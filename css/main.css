@@ -639,7 +639,6 @@ div.tabla-precios p.numero{
 /*********************MAPA*************************************************/
 div.mapa{
   height: 420px;
-  background-color: gold;
 }
 /*********************TESTIMONIALES*******************************************************/
 div.testinominales{
@@ -962,6 +961,14 @@ div.dia p{
 }
 div.dia i{
   color: #fe4918;
+}
+/****************COLORBOX***********/
+div.cboxElement{
+  padding: 2rem!important;
+  text-align: center;
+}
+div.cboxElement img{
+  margin: 0 auto;
 }
 /* ==========================================================================
    Helper classes

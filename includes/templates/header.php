@@ -12,15 +12,25 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/all.min.css"> 
+  <link rel="stylesheet" href="css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/colorbox.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/main.css">
+
+  <?php
+    $archivo=basename($_SERVER['PHP_SELF']);
+    $pagina= str_replace(".php","",$archivo);
+    if($pagina=='conferencia'){
+      echo '<link rel="stylesheet" href="css/lightbox.css">';
+    }else if($pagina=='invitados' || $pagina=='index'){
+      echo '<link rel="stylesheet" href="css/colorbox.css">';
+    }
+  ?>
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="<?php echo$pagina ?>">
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->

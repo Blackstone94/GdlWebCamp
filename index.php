@@ -9,10 +9,10 @@
 
     <section class="programa">
       <div class="contenedor-video">
-          <video autoplay loop poster="img/bg-talleres.jpg">
-            <source src="video/video.mp4" type="video/mp4">
-            <source src="video/video.ogv" type="video/ogv">
-            <source src="video/video.webm" type="video/webm">
+          <video autoplay loop muted poster="img/bg-talleres.jpg">
+            <source src="img/video.mp4" type="video/mp4">
+            <source src="img/video.ogv" type="video/ogv">
+            <source src="img/video.webm" type="video/webm">
           </video>
       </div><!--contendor video-->
 
@@ -79,47 +79,7 @@
       </div><!--Contenido programa-->
     </section><!--Programa-->
     <!--*************************************************************************************/-->
-    <section class="invitados contenedor seccion">
-      <h2>Nuestros invitados</h2>
-      <ul class="lista-invitados clearfix">
-        <li>
-          <div class="invitado">
-            <img src="img/invitado1.jpg" alt="Invitado">
-            <p>Rafael Bautista</p>
-          </div>
-        </li>
-        <li>
-          <div class="invitado">
-            <img src="img/invitado2.jpg" alt="Invitado">
-            <p>Shari Herrera</p>
-          </div>
-        </li>
-        <li>
-          <div class="invitado">
-            <img src="img/invitado3.jpg" alt="Invitado">
-            <p>George Sanchez</p>
-          </div>
-        </li>
-        <li>
-          <div class="invitado">
-            <img src="img/invitado4.jpg" alt="Invitado">
-            <p>Susana Rivera</p>
-          </div>
-        </li>
-        <li>
-          <div class="invitado">
-            <img src="img/invitado5.jpg" alt="Invitado">
-            <p>Harlod Garcia</p>
-          </div>
-        </li>
-        <li>
-          <div class="invitado">
-            <img src="img/invitado6.jpg" alt="Invitado">
-            <p>Susan Sanchez</p>
-          </div>
-        </li>
-      </ul>
-    </section><!--invitados-->
+    <?php include_once 'includes/templates/invitados.php'?>
 
     <div class="contador parallax">
       <div class="contenedor">
@@ -177,7 +137,8 @@
       </div><!--contenedor-->
     </section><!--Precios-->
 
-    <div class="mapa"></div>
+    <div id="mapa" class="mapa"></div>
+
     <section class="seccion">
       <h2>Testimoniales</h2>
       <div class="testimoniales contenedor clearfix">
