@@ -1,7 +1,6 @@
 <?php include_once 'includes/templates/header.php'?>
     <section class="seccion contenedor">
       <h2>Calendario de Eventos</h2>
-
     <?php
         try{
           require_once('includes/funciones/bd_conexion.php');
@@ -17,7 +16,6 @@
           echo $e->getMessage();
         }
     ?>
-
     <div class="calendario">
         <?php
           $calendario = array();//creacion de un array
