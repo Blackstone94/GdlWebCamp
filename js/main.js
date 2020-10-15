@@ -170,4 +170,7 @@ $(function(){
       $('#minutos').html(event.strftime('%M'));
       $('#segundos').html(event.strftime('%S'));
   });
+
+  /**ColorBox **/
+  $('.invitado-info').colorbox({inline:true,width:"50%"});
 });

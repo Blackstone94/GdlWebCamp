@@ -63,7 +63,7 @@
             <?php }?><!--recorrer eventos-->
         <?php } ?><!-- recorrer dias-->
     </div><!-- div calendario-->
-    <?php $conn->close(); ?>
+    <?php $conn->close(); //cerrar base de datos?>
   </section><!--fin seccion-->
 
 <?php include_once 'includes/templates/footer.php'?>
