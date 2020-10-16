@@ -2,7 +2,8 @@
     "use strict";
     document.addEventListener('DOMContentLoaded',function(){
 
-      L.map('mapa').setView([20.600576, -103.354024], 13);
+      //L.map('mapa').setView([20.600576, -103.354024], 13);
+
 
       $('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
       $('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
