@@ -161,7 +161,7 @@
       </div><!--contenedor-->
     </section><!--Precios-->
 
-    <div id="mapa" class="mapa"></div>
+    <div id="mapid" class="mapa"></div>
 
     <section class="seccion">
       <h2>Testimoniales</h2>
