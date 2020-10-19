@@ -15,10 +15,12 @@
   <link rel="stylesheet" href="css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="css/main.css">
+
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"/>
 
-  <link rel="stylesheet" href="css/main.css">
+
 
   <?php
     $archivo=basename($_SERVER['PHP_SELF']);

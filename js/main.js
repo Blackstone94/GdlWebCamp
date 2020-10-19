@@ -1,19 +1,19 @@
 (function(){
     "use strict";
     document.addEventListener('DOMContentLoaded',function(){
-
+      if(filename()=="index.php"){
       var mymap = L.map('mapid').setView([20.613784, -103.345776], 15);
 
       L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
           maxZoom: 18
       }).addTo(mymap);
-
+    }
       $('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
       $('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
       $('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
 
-
+    if(filename()=="registro.php"){
       // variable usuario
        var nombre=document.getElementById("nombre");
        var apellido=document.getElementById("apellido");
@@ -31,6 +31,7 @@
        var lista_productos=document.getElementById("lista-productos");
        var suma=document.getElementById("suma-total");
 
+       botonRegistro.disabled=true;
        //extras
        var camisas=document.getElementById('camisa_evento');
        var etiquetas=document.getElementById('etiquetas');
@@ -107,6 +108,9 @@
                     lista_productos.innerHTML+=listadoProductos[i]+'<br>'
                 }
                 suma.innerHTML= "$ "+totalApagar.toFixed(2);
+                botonRegistro.disabled=false;
+                document.getElementById('total_pedido').value = totalApagar;
+
             }//elegir regalo
        }//calcular montos
 
@@ -130,9 +134,18 @@
            }
        }
 
-
+      }
     });//Dom cargado
 })();
+
+function filename(){//nombre del archivo actual
+  var rutaAbsoluta = self.location.href;
+  var posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
+  var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
+  return rutaRelativa;
+}
+
+
 
 $(function(){
 
@@ -180,7 +193,8 @@ $(function(){
       $('#minutos').html(event.strftime('%M'));
       $('#segundos').html(event.strftime('%S'));
   });
-
-  /**ColorBox **/
-  $('.invitado-info').colorbox({inline:true,width:"50%"});
+  if(filename()=="invitados.php"){
+    /**ColorBox **/
+    $('.invitado-info').colorbox({inline:true,width:"50%"});
+  }
 });
