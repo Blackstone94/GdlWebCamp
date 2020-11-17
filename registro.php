@@ -157,7 +157,7 @@
             <div class="orden">
               <label for="etiquetas">Camisa del evento $10<small>(HTML, CSS, JAVASCRIPT, CHROME)</small></label>
               <input type="number" size="3" id="etiquetas" name="pedido_extra[etiquetas][cantidad]"  min="0" placeholder="0">
-              <input type="hidden" name="pedido_extra[etiquetas][precios]" value="10">
+              <input type="hidden" name="pedido_extra[etiquetas][precio]" value="10">
             </div>
             <div class="orden">
               <label for="regalo">Elige un regalo</label>

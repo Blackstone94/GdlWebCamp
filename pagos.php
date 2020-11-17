@@ -1,30 +1,4 @@
 <?php
-
-    if(isset($_POST['submit'])){
-        //variables desde el formulario
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $email = $_POST['e-mail'];
-        $regalo=$_POST['regalo'];
-        $total=$_POST['total_pedido'];
-        $fecha = date('Y-m-d H:i:s');
-        //Pedido
-        $boletos =$_POST['boletos'];
-        $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
-        $precioCamisas=$_POST['pedido_extra']['camisas']['precio'];
-        $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
-        $precioEtiquetas=$_POST['pedido_extra']['etiquetas']['precio'];
-
-        include_once 'includes/funciones/funciones.php';
-        $pedido = productos_json($boletos,$camisas,$etiquetas);
-        $eventos = $_POST['registros'];
-        $registro = eventos_json($eventos);
-
-      echo "<pre>";
-      var_dump ($_POST);
-      echo "</pre>";
-    }
-/*
     use PayPal\Api\Payer;
     use PayPal\Api\Item;
     use PayPal\Api\ItemList;
@@ -34,8 +8,52 @@
     use PayPal\Api\RedirectUrls;
     use PayPal\Api\Payment;
 
+    if(isset($_POST['submit'])){
+        require 'configPaypal.php';
 
-    require 'configuracion.php';
+        //variables desde el formulario
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $email = $_POST['e-mail'];
+        $regalo=$_POST['regalo'];
+        $total=$_POST['total_pedido'];
+        $fecha = date('Y-m-d H:i:s');
+        //Pedido
+        $boletos =$_POST['boletos'];
+        $numero_boletos=$boletos;
+        $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+        $precioCamisas=$_POST['pedido_extra']['camisas']['precio'];
+        $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+        $precioEtiquetas=$_POST['pedido_extra']['etiquetas']['precio'];
+
+        include_once 'includes/funciones/funciones.php';
+        $pedido = productos_json($boletos,$camisas,$etiquetas);
+        $eventos = $_POST['registro'];
+        $registro = eventos_json($eventos);
+
+
+
+      //objeto informacion del pago
+      $compra = new Payer();
+      $compra->setPaymentMethod('paypal');
+      $i=0;
+      foreach($numero_boletos as $key => $value){
+          if((int) $value['cantidad'] >0){
+            ${"articulo$i"} = new Item();
+            ${"articulo$i"}->setName('Pase: ' .$key)
+                          ->setCurrency('MXN')
+                          ->setQuantity((int)$value['cantidad'])
+                          ->setPrice((int)$value['precio']);
+            $i++;
+          }
+      }
+    echo $articulo0->getName();
+  }
+
+/*
+
+
+
 
     $producto=htmlspecialchars($_POST['producto']);
     $precio=htmlspecialchars($_POST['precio']);
@@ -44,16 +62,10 @@
     $envio=0;
     $total=$precio+$envio;
 
-    //objeto informacion del pago
-    $compra = new Payer();
-    $compra->setPaymentMethod('paypal');
+
 
     //articulo a pagar
-    $articulo = new Item();
-    $articulo->setName($producto)
-            ->setCurrency('MXN')
-            ->setQuantity(1)
-            ->setPrice($precio);
+
 
     //lista de articulos a pagar
     $listaArticulos = new ItemList();
@@ -94,3 +106,5 @@
         }
         $aprobado=$pago->getApprovalLink();
         header("Location: {$aprobado}");
+*/
+?>
