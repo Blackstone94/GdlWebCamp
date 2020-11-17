@@ -1,5 +1,6 @@
 <?php
-    $conn= new mysqli('localhost:8889','root','root','gdlwebcamp');
+//host, user, pass,db
+    $conn= new mysqli('localhost','root','','gdlwebcamp');
     if($conn->connect_error){
       echo $error ->$conn->connect_error;
     }
