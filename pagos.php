@@ -39,7 +39,7 @@
       $compra = new Payer();
       $compra->setPaymentMethod('paypal');
       $i=0;
-      $arreglo_pedido=array();
+      $arreglo_pedido=array();//arreglo que contiene los item
       //boletos
       foreach($numero_boletos as $key => $value){
           if((int) $value['cantidad'] >0){
@@ -69,15 +69,23 @@
           $i++;
         }
     }
-    echo $articulo0->getName();
   }
     //lista de articulos a pagar
     $listaArticulos = new ItemList();
     $listaArticulos->setItems($arreglo_pedido);
+
+
+
     echo "<pre>";
     var_dump ($arreglo_pedido);
+    echo $total;
     echo "</pre>";
 
+    //TOTALES
+  /*  $cantidad = new Amount();
+    $cantidad->setCurrency('MXN')
+             ->setTotal($total)
+             ->setDetails($detalles);*/
 /*
 
 
@@ -86,10 +94,7 @@
     $detalles->setShipping($envio)
             ->setSubtotal($precio);
 
-    $cantidad = new Amount();
-    $cantidad->setCurrency('MXN')
-             ->setTotal($total)
-             ->setDetails($detalles);
+
 
     $transaccion=new Transaction();
     $transaccion->setAmount($cantidad)
