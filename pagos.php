@@ -21,6 +21,8 @@
         //Pedido
         $boletos =$_POST['boletos'];
         $numero_boletos=$boletos;
+
+        $pedidoExtra= $_POST['pedido_extra'];
         $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
         $precioCamisas=$_POST['pedido_extra']['camisas']['precio'];
         $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
@@ -37,39 +39,48 @@
       $compra = new Payer();
       $compra->setPaymentMethod('paypal');
       $i=0;
+      $arreglo_pedido=array();
+      //boletos
       foreach($numero_boletos as $key => $value){
           if((int) $value['cantidad'] >0){
             ${"articulo$i"} = new Item();
+            $arreglo_pedido[]=${"articulo$i"};
             ${"articulo$i"}->setName('Pase: ' .$key)
                           ->setCurrency('MXN')
                           ->setQuantity((int)$value['cantidad'])
-                          ->setPrice((int)$value['precio']);
+                          ->setPrice((float)$value['precio']);
             $i++;
           }
       }
+      //camisas y etiquetas
+      foreach($pedidoExtra as $key => $value){
+        if((int) $value['cantidad'] >0){
+          if($key==='camisas'){
+            $precio=(float) $value['precio'] *.93;
+          }else{
+            $precio = (int) $value['precio'];
+          }
+          ${"articulo$i"} = new Item();
+          $arreglo_pedido[]=${"articulo$i"};
+          ${"articulo$i"}->setName('Extras: ' .$key)
+                        ->setCurrency('USD')
+                        ->setQuantity((int)$value['cantidad'])
+                        ->setPrice((float)$value['precio']);
+          $i++;
+        }
+    }
     echo $articulo0->getName();
   }
+    //lista de articulos a pagar
+    $listaArticulos = new ItemList();
+    $listaArticulos->setItems($arreglo_pedido);
+    echo "<pre>";
+    var_dump ($arreglo_pedido);
+    echo "</pre>";
 
 /*
 
 
-
-
-    $producto=htmlspecialchars($_POST['producto']);
-    $precio=htmlspecialchars($_POST['precio']);
-
-    $precio= (int) $precio;
-    $envio=0;
-    $total=$precio+$envio;
-
-
-
-    //articulo a pagar
-
-
-    //lista de articulos a pagar
-    $listaArticulos = new ItemList();
-    $listaArticulos->setItems(array($articulo));
 
     $detalles=new Details();
     $detalles->setShipping($envio)
