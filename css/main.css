@@ -970,6 +970,23 @@ div.cboxElement{
 div.cboxElement img{
   margin: 0 auto;
 }
+/**********PAYPAL****************/
+.pagar{
+  text-align: center;
+}
+.resultado{
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.correcto{
+  background-color: rgb(2,173,2);
+}
+.error{
+  background-color: red;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
