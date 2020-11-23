@@ -1,4 +1,5 @@
 <?php
+  include_once('funciones/funciones.php');
   if(isset($_POST['agregar-admin'])){
     $usuario=$_POST['usuario'];
     $nombre=$_POST['nombre'];
