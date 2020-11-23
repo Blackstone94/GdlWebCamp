@@ -22,5 +22,9 @@
 <script src="js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="js/demo.js"></script>
+<!--alertas-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!--ajas js-->
+<script src="js/administradores-ajax.js"></script>
 </body>
 </html>
