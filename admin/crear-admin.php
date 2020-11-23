@@ -16,15 +16,15 @@ include_once('templates/aside.php')?>
             </h1>
           </div>
           <div class="col-md-8">
-            <form role="form" method="post" name="crear-admin.php" action="insertar_admin.php">
+            <form role="form" method="post" id="crear-admin" name="crear-admin.php" action="insertar-admin.php">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="usuario">Usuario:</label>
-                    <input type="email" class="form-control" id="usuario" name="usuario" placeholder="Nombre de usuario">
+                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de usuario">
                   </div>
                   <div class="form-group">
                     <label for="nombre">Nombre:</label>
-                    <input type="email" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo">
                   </div>
                   <div class="form-group">
                     <label for="password">Contraseña:</label>
@@ -34,6 +34,7 @@ include_once('templates/aside.php')?>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
+                  <input type="hidden" name="agregar-admin" value="1">
                   <button type="submit" class="btn btn-primary">Añadir </button>
                 </div>
             </form>
