@@ -15,12 +15,22 @@
       $stmt=$conn->prepare("INSERT INTO admins(usuario,nombre,password) values(?,?,?)");
       $stmt->bind_param("sss",$usuario,$nombre,$password_hashed);
       $stmt->execute();
+      $id_registro=$stmt->insert_id;
+      if($id_registro>0){//se inserto?
+        $respuesta =array(
+          'respuesta'=>'correcto',
+          'id_admin'=>$id_registro
+        );
+      }else{
+          $respuesta=array(
+            'respuesta'=>'error'
+          );
+      }
       $stmt->close();
       $conn->close();
-      
-      echo "ok";
     }catch(Exception $e){
       echo "Error ".$e.getMessage();
     }
+    die(json_encode($respuesta));
   }
 ?>
