@@ -31,7 +31,7 @@ $(document).ready(function(){//termino de cargar el html
   $('#login-admin').on('submit',function(e){
     e.preventDefault();
     var datos=$(this).serializeArray();
-    console.log(datos);
+  //  console.log(datos);
     $.ajax({
        type: $(this).attr('method'),
        data: datos,
@@ -41,20 +41,21 @@ $(document).ready(function(){//termino de cargar el html
          console.log(data);
 
 
-    /*     var resultado=data;
+        var resultado=data;
          if(resultado.respuesta=='correcto'){
-           Swal.fire(
-             'Operacion satisfactoria!',
-             'Se agrego correctamente el administrador: ',
-             'success'
-           );
+           Swal.fire({
+            title: 'Login correcto!',
+            text: 'Bienvenido: '.data.nombre,
+            icon: 'success'
+           })
+           head('admin-area.php');
          }else{
            Swal.fire({
              icon: 'error',
              title: 'Error',
-             text: 'Ocurrio un error',
+             text: data.error,
            })
-         }*/
+         }
         // console.log(data);
        }
     })
