@@ -189,6 +189,12 @@
               </li>
             </ul>
           </li><!--TESTIMONIALES-->
+          <li class="nav-item">
+            <a href="login.php?cerrar_sesion=true" class="nav-link">
+              <i class="fa fa-key nav-icon"></i>
+              <p>Cerrar sesion</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

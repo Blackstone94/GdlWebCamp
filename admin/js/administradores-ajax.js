@@ -45,10 +45,12 @@ $(document).ready(function(){//termino de cargar el html
          if(resultado.respuesta=='correcto'){
            Swal.fire({
             title: 'Login correcto!',
-            text: 'Bienvenido: '.data.nombre,
+            text: 'Bienvenido: '+data.nombre,
             icon: 'success'
-           })
-           head('admin-area.php');
+           });
+           setTimeout(function(){
+            window.location.href='admin-area.php';
+          },2000);
          }else{
            Swal.fire({
              icon: 'error',

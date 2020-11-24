@@ -1,6 +1,13 @@
 <?php
-include_once('funciones/funciones.php');
-include_once('templates/header.php');?>
+  session_start();
+  if(isset($_GET['cerrar_sesion'])){
+    $cerrar_sesion=$_GET['cerrar_sesion'];
+    if($cerrar_sesion){
+      session_destroy();
+    }
+  }
+  include_once('funciones/funciones.php');
+  include_once('templates/header.php');?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
