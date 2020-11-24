@@ -48,6 +48,9 @@
         $existe=$stmt->fetch();
         if($existe){
           if(password_verify($password,$password_admin)){//unica forma de comparar password
+            session_start();
+            $_SESSION['usuario']=$usuario_admin;
+            $_SESSION['nombre']=$nombre_admin;
             $respuesta =array(
               'respuesta'=>'correcto',
               'nombre'=>$nombre_admin
