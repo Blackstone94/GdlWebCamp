@@ -14,12 +14,12 @@ include_once('templates/aside.php')?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Listado de administradores</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item"><a href="admin-area.php">Inicio</a></li>
+              <li class="breadcrumb-item active"><a href="login.php?cerrar_sesion=true"> Cerrar sesion</a></li>
             </ol>
           </div>
         </div>
@@ -32,11 +32,11 @@ include_once('templates/aside.php')?>
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Maneja los administradores en esta seccion</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="registros" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Usuario</th>
