@@ -2,7 +2,6 @@ $(document).ready(function(){//termino de cargar el html
   $('#modelo-admin').on('submit',function(e){
      e.preventDefault();
      var datos=$(this).serializeArray();
-
      $.ajax({
         type: $(this).attr('method'),
         data: datos,
@@ -11,7 +10,6 @@ $(document).ready(function(){//termino de cargar el html
         success:function(data){
           var resultado=data;
           if(resultado.respuesta=='correcto'){
-
             Swal.fire(
               'Operacion satisfactoria!',
               'Se agrego correctamente el administrador: ',

@@ -48,7 +48,7 @@ include_once('funciones/funciones.php');
                 <div class="card-footer">
                   <input type="hidden" name="registro" value="editar">
                   <input type="hidden" name="id_registro" value=<?php echo $admin['id']?>>
-                  <button type="submit" class="btn btn-primary">Añadir </button>
+                  <button type="submit" class="btn btn-primary">Guardar </button>
                 </div>
             </form>
           </div>
