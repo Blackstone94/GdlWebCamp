@@ -87,7 +87,7 @@
     $usuario=$_POST['usuario'];
     $nombre=$_POST['nombre'];
     $password=$_POST['password'];
-
+    $id=$_POST['id_registro'];
     //por default costo en 10
     $opciones=array(
       'cost'=>12//mas interaciones
@@ -96,14 +96,14 @@
     $password_hashed=password_hash($password,PASSWORD_BCRYPT,$opciones);
     try{
       include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("UPDATE set admins(usuario=?,nombre=?,password=?)");
-      $stmt->bind_param("sss",$usuario,$nombre,$password_hashed);
+      $stmt=$conn->prepare("UPDATE admins  set usuario=?,nombre=?,password=? where id=?");
+      $stmt->bind_param("sssi",$usuario,$nombre,$password_hashed,$id);
       $stmt->execute();
       $id_registro=$stmt->insert_id;
-      if($id_registro>0){//se inserto?
+      if($stmt->affected_rows){//se inserto?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id_admin'=>$id_registro
+          'id_editado'=>$id_registro
         );
       }else{
           $respuesta=array(

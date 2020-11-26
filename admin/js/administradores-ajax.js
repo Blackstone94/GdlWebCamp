@@ -1,5 +1,5 @@
 $(document).ready(function(){//termino de cargar el html
-  $('#crear-admin').on('submit',function(e){
+  $('#modelo-admin').on('submit',function(e){
      e.preventDefault();
      var datos=$(this).serializeArray();
 
@@ -11,11 +11,15 @@ $(document).ready(function(){//termino de cargar el html
         success:function(data){
           var resultado=data;
           if(resultado.respuesta=='correcto'){
+
             Swal.fire(
               'Operacion satisfactoria!',
               'Se agrego correctamente el administrador: ',
               'success'
             );
+            setTimeout(function(){
+              window.location.href='lista-admin.php';
+            },2000);
           }else{
             Swal.fire({
               icon: 'error',

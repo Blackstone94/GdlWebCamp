@@ -27,14 +27,8 @@ include_once('funciones/funciones.php');
                $sql="SELECT * FROM admins WHERE id=$id";
                $resultado = $conn->query($sql);
                $admin=$resultado->fetch_assoc();
-       /*       echo "<pre>";
-                  var_dump ($conn);
-               echo "</pre>";*/
-               if(isset($admin['id'])){
-                  echo 'ok';
-               }
             ?>
-            <form role="form" method="post" id="editar-admin" name="crear-admin" action="modelo-admin.php">
+            <form role="form" method="post" id="modelo-admin" name="editar-admin" action="modelo-admin.php">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="usuario">Usuario:</label>

@@ -15,7 +15,7 @@ include_once('templates/aside.php')?>
             </h1>
           </div>
           <div class="col-md-8">
-            <form role="form" method="post" id="crear-admin" name="crear-admin" action="modelo-admin.php">
+            <form role="form" method="post" id="modelo-admin" name="crear-admin" action="modelo-admin.php">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="usuario">Usuario:</label>
