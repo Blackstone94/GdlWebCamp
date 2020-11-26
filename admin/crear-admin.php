@@ -4,8 +4,6 @@ include_once('templates/header.php');
 include_once('templates/barra.php');
 include_once('templates/aside.php')?>
 
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,7 +15,7 @@ include_once('templates/aside.php')?>
             </h1>
           </div>
           <div class="col-md-8">
-            <form role="form" method="post" id="crear-admin" name="crear-admin.php" action="insertar-admin.php">
+            <form role="form" method="post" id="crear-admin" name="crear-admin" action="modelo-admin.php">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="usuario">Usuario:</label>
@@ -35,7 +33,7 @@ include_once('templates/aside.php')?>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <input type="hidden" name="agregar-admin" value="1">
+                  <input type="hidden" name="registro" value="nuevo">
                   <button type="submit" class="btn btn-primary">Añadir </button>
                 </div>
             </form>
