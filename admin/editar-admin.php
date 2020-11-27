@@ -38,9 +38,14 @@ include_once('funciones/funciones.php');
                     <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo" value=<?php echo $admin['nombre']?>>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group has-feedback">
                     <label for="password">Contraseña:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                  </div>
+                  <div class="form-group has-feedback">
+                    <label for="password">Repetir Contraseña:</label>
+                    <input type="password" class="form-control" id="repetirPassword" name="repetirPassword" placeholder="Repetir contraseña">
+                    <span id="resultadoPassword" class="help-block"></span>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -48,7 +53,7 @@ include_once('funciones/funciones.php');
                 <div class="card-footer">
                   <input type="hidden" name="registro" value="editar">
                   <input type="hidden" name="id_registro" value=<?php echo $admin['id']?>>
-                  <button type="submit" class="btn btn-primary">Guardar </button>
+                  <button type="submit" class="btn btn-primary" id="crear-registro">Guardar </button>
                 </div>
             </form>
           </div>
