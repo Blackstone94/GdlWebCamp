@@ -29,6 +29,11 @@ include_once('templates/aside.php')?>
                     <label for="password">Contraseña:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                   </div>
+                  <div class="form-group has-feedback">
+                    <label for="password">Repetir Contraseña:</label>
+                    <input type="password" class="form-control" id="repetirPassword" name="repetirPassword" placeholder="Repetir contraseña">
+                    <span id="resultadoPassword" class="help-block"></span>
+                  </div>
                 </div>
                 <!-- /.card-body -->
 

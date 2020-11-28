@@ -10,7 +10,7 @@ $(document).ready(function(){//termino de cargar el html
         success:function(data){
           var resultado=data;
           if(resultado.respuesta=='correcto'){
-            Swal.fire(
+            swal(
               'Operacion satisfactoria!',
               'Se agrego correctamente el administrador: ',
               'success'
@@ -19,7 +19,7 @@ $(document).ready(function(){//termino de cargar el html
               window.location.href='lista-admin.php';
             },2000);
           }else{
-            Swal.fire({
+            swal({
               icon: 'error',
               title: 'Error',
               text: 'Ocurrio un error',
@@ -36,16 +36,41 @@ $('.borrarRegistro').on('click',function(e){
   var id=$(this).attr('data-id');
   var tipo=$(this).attr('data-tipo');
 
-  $.ajax({
-    type:'post',
-    data:{
-      'id':id,
-       'registro' : 'eliminar'
-    },
-    url:'modelo-'+tipo+'.php'
-
+  swal({
+    title: "Estas seguro?",
+    text: "Quieres eliminar este administrador",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Cancelar", "Si,eliminar"]
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        type:'post',
+        data:{
+          'id':id,
+          'registro' : 'eliminar'
+        },
+        url:'modelo-'+tipo+'.php',
+        success : function(data){
+          console.log("hola mundo");
+          var result=JSON.parse(data);
+          console.log(result);
+          if(result.respuesta=="correcto"){
+            jQuery('[data-id="'+result.id_admin+'"]').parents('tr').remove();
+            swal(
+              'Operacion satisfactoria!',
+              'Se elimino correctamente el administrador: ',
+              'success'
+            );
+          }
+        }
+      });
+    } else {
+      swal("Your imaginary file is safe!");
+    }
   });
-
 });
 
 //logear admin

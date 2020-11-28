@@ -10,6 +10,9 @@
 </div>
 <!-- ./wrapper -->
 
+<!--alertas-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -17,8 +20,6 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="js/demo.js"></script>
-<!--alertas-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- DataTables -->
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap4.min.js"></script>

@@ -145,11 +145,11 @@
       $stmt->bind_param("i",$id);
       $stmt->execute();
 
-      $id_registro=$stmt->insert_id;
       if($stmt->affected_rows){//se borro?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id_admin'=>$id_registro
+          'id_admin'=>$id,
+          'mensaje'=>'Registro eliminado correctamente'
         );
       }else{
           $respuesta=array(
