@@ -29,7 +29,26 @@ $(document).ready(function(){//termino de cargar el html
         }
      })
   });
+//borrar registros
+$('.borrarRegistro').on('click',function(e){
+  e.preventDefault();
 
+  var id=$(this).attr('data-id');
+  var tipo=$(this).attr('data-tipo');
+
+  $.ajax({
+    type:'post',
+    data:{
+      'id':id,
+       'registro' : 'eliminar'
+    },
+    url:'modelo-'+tipo+'.php'
+
+  });
+
+});
+
+//logear admin
   $('#login-admin').on('submit',function(e){
     e.preventDefault();
     var datos=$(this).serializeArray();

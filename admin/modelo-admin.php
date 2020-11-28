@@ -1,10 +1,16 @@
 <?php
 
   if(isset($_POST['registro'])){
-    if($_POST['registro']==="nuevo"){
-      nuevo_registro();
-    }else if($_POST['registro']==="editar"){
-      editar_registro();
+    switch($_POST['registro']){
+      case "nuevo":
+        nuevo_registro();
+      break;
+      case "editar":
+        editar_registro();
+      break;
+      case "eliminar":
+        eliminar_registro();
+      break;
     }
   }
 
@@ -126,6 +132,37 @@
       $conn->close();
     }catch(Exception $e){
       echo "Error ".$e.getMessage();
+    }
+    die(json_encode($respuesta));
+  }
+
+  function eliminar_registro(){
+    $id=$_POST['id'];
+
+    try{
+      include_once('funciones/funciones.php');
+      $stmt=$conn->prepare("DELETE FROM admins WHERE id=?");
+      $stmt->bind_param("i",$id);
+      $stmt->execute();
+
+      $id_registro=$stmt->insert_id;
+      if($stmt->affected_rows){//se borro?
+        $respuesta =array(
+          'respuesta'=>'correcto',
+          'id_admin'=>$id_registro
+        );
+      }else{
+          $respuesta=array(
+            'respuesta'=>'error'
+          );
+      }
+      $stmt->close();
+      $conn->close();
+    }catch(Exception $e){
+      $respuesta=array(
+        'respuesta'=>'error',
+        'detalle'=>$e->getMessage()
+      );
     }
     die(json_encode($respuesta));
   }

@@ -60,7 +60,7 @@ include_once('templates/aside.php')?>
                             <a href="editar-admin.php?id=<?php echo $admin['id']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a href="#" data-id="<?php echo $admin['id']?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro ">
+                            <a href="#" data-id="<?php echo $admin['id']?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrarRegistro ">
                               <i class="fas fa-trash"></i>
                             </a>
                           </td>
