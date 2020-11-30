@@ -26,6 +26,9 @@
 <script src="js/dataTables.responsive.min.js"></script>
 <script src="js/responsive.bootstrap4.min.js"></script>
 
+<!-- logueo -->
+<script src="js/login-ajax.js"></script>
+
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
 <!--tablas-->

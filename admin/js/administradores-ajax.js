@@ -54,9 +54,7 @@ $('.borrarRegistro').on('click',function(e){
         },
         url:'modelo-'+tipo+'.php',
         success : function(data){
-          console.log("hola mundo");
           var result=JSON.parse(data);
-          console.log(result);
           if(result.respuesta=="correcto"){
             jQuery('[data-id="'+result.id_admin+'"]').parents('tr').remove();
             swal(
@@ -73,39 +71,4 @@ $('.borrarRegistro').on('click',function(e){
   });
 });
 
-//logear admin
-  $('#login-admin').on('submit',function(e){
-    e.preventDefault();
-    var datos=$(this).serializeArray();
-  //  console.log(datos);
-    $.ajax({
-       type: $(this).attr('method'),
-       data: datos,
-       url: $(this).attr('action'),
-       dataType: 'json',
-       success:function(data){
-         console.log(data);
-
-
-        var resultado=data;
-         if(resultado.respuesta=='correcto'){
-           Swal.fire({
-            title: 'Login correcto!',
-            text: 'Bienvenido: '+data.nombre,
-            icon: 'success'
-           });
-           setTimeout(function(){
-            window.location.href='admin-area.php';
-          },2000);
-         }else{
-           Swal.fire({
-             icon: 'error',
-             title: 'Error',
-             text: data.error,
-           })
-         }
-        // console.log(data);
-       }
-    })
- });
 });
