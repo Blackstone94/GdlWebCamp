@@ -1,20 +1,14 @@
 <?php
-  if(isset($_POST['login-admin'])){
+  if(isset($_POST['login'])){
     $usuario=$_POST['usuario'];
     $password=$_POST['password'];
+
     try{
-
-      include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("SELECT * FROM admins WHERE usuario=?");
+      include_once 'funciones/funciones.php';
+      $stmt=$conn->prepare("SELECT * FROM admins WHERE usuario=?;");
       $stmt->bind_param("s",$usuario);
-      $respuesta =array(
-        'respuesta'=>'correcto',
-        'nombre'=>$usuario,
-        'nombre'=>$usuarpasword
-      );
       $stmt->execute();
-      $stmt->bind_result($id_admin,$usuario_admin,$nombre_admin,$password_admin);
-
+      $stmt->bind_result($id_admin,$usuario_admin,$nombre_admin,$password_admin,$editado);
       if($stmt->affected_rows){//se encontro?
         $existe=$stmt->fetch();
         if($existe){
@@ -44,14 +38,15 @@
             'error'=>'El usuario no existe'
           );
       }
-   //   $stmt->close();
- //     $conn->close();
+      $stmt->close();
+      $conn->close();
     }catch(Exception $e){
       $respuesta=array(
         'respueta'=>'Error',
         'error'=>$e->getMessage()
       );
     }
+
     die(json_encode($respuesta));
   }
 ?>

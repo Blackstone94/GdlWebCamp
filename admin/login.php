@@ -19,7 +19,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Inicia sesion aquí</p>
 
-      <form  method="post" id="login-admin" name="login-admin" action="login-admin.php">
+      <form  method="post" id="login-admin" name="login-admin-form" action="login-admin.php">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="usuario" placeholder="Usuario">
           <div class="input-group-append">
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="col-xs-12">
-          <input type="hidden" name="login-admin"  value="1">
+          <input type="hidden" name="login"  value="1">
           <button type="submit" class="btn btn-primary btn-block">Iniciar session</button>
         </div>
       </form>

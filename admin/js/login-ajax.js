@@ -8,19 +8,17 @@ $(document).ready(function(){
        data: datos,
        url: $(this).attr('action'),
        dataType: 'json',
-       success:function(data){
-         console.log("SUCCESS "+data);
+       success : function(data){
         var resultado=data;
-        console.log(resultado);
          if(resultado.respuesta=='correcto'){
            swal({
             title: 'Login correcto!',
-            text: 'Bienvenido: '+data,
+            text: 'Bienvenido: '+data.nombre,
             icon: 'success'
            });
-         /*  setTimeout(function(){
+           setTimeout(function(){
             window.location.href='admin-area.php';
-          },2000);*/
+          },2000);
          }else{
            swal({
              icon: 'error',
