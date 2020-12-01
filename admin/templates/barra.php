@@ -15,7 +15,7 @@
       <!-- Messages Dropdown Menu -->
       <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <span class="hidden-xs">Hola: Admin</span>
+          <span class="hidden-xs">Hola: <?php echo $_SESSION['nombre']?></span>
         </a>
         <ul class="dropdown-menu">
           <li class="user-footer">

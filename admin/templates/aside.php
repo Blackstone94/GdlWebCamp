@@ -16,7 +16,7 @@
           <img src="img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Edgar Ortega</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['nombre']?></a>
         </div>
       </div>
 
@@ -143,29 +143,31 @@
               </li>
             </ul>
           </li><!--REGISTRADOS-->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-            <i class="fas fa-user-tie"></i>
-              <p>
-                Administradores
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="lista-admin.php" class="nav-link">
-                  <i class="fa fa-list nav-icon"></i>
-                  <p>Ver todos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="crear-admin.php" class="nav-link">
-                  <i class="fa fa-plus nav-icon"></i>
-                  <p>Agregar</p>
-                </a>
-              </li>
-            </ul>
-          </li><!--ADMINISTRADORES-->
+          <?php if($_SESSION['nivel']==1):?>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+              <i class="fas fa-user-tie"></i>
+                <p>
+                  Administradores
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="lista-admin.php" class="nav-link">
+                    <i class="fa fa-list nav-icon"></i>
+                    <p>Ver todos</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="crear-admin.php" class="nav-link">
+                    <i class="fa fa-plus nav-icon"></i>
+                    <p>Agregar</p>
+                  </a>
+                </li>
+              </ul>
+            </li><!--ADMINISTRADORES-->
+          <?php endif;?>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
             <i class="fas fa-comments"></i>
