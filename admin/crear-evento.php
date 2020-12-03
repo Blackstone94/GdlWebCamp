@@ -57,8 +57,8 @@ include_once 'templates/aside.php'?>
                   <div class="bootstrap-timepicker">
                     <div class="form-group">
                       <label>Hora del evento:</label>
-                      <div class="input-group date" id="timepicker" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker"/>
+                      <div class="input-group date" id="timepicker" data-target-input="nearest" >
+                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="hora_evento"/>
                         <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="far fa-clock"></i></div>
                         </div>
@@ -67,12 +67,33 @@ include_once 'templates/aside.php'?>
                     </div>
                     <!-- /.form group -->
                   </div>
+
+                  <div class="form-group">
+                    <label for="categoria">Categoria:</label>
+                    <select class="form-control select2"  name="invitado">
+                         <option value="0"> --Seleccion un invitado o ponente --</option>
+                         <?php
+                          try {
+                              $sql = "SELECT invitado_id,nombre_invitado,apellido_invitado from invitados ";
+                              $resultado = $conn->query($sql);
+
+                              while ($invitado = $resultado->fetch_assoc()) {?>
+                                <option value=<?php echo $invitado['invitado_id'] ?>>
+                                  <?php echo $invitado['nombre_invitado']." ". $invitado['apellido_invitado']; ?>
+                                </option>
+                              <?php }
+                          } catch (Exception $e) {
+                             echo $e->getMessage();
+                          }?>
+                    </select>
+                  </div>
+
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <input type="hidden" name="registro" value="nuevo">
-                  <button type="submit" class="btn btn-primary" id="crear-registro">Añadir </button>
+                  <button type="submit" class="btn btn-primary" id="crear-registro_evento">Añadir </button>
                 </div>
             </form>
           </div>
