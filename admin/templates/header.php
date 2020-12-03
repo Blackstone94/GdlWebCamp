@@ -19,7 +19,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="css/responsive.bootstrap4.min.css">
-
+  <!--Date picker-->
+  <link rel="stylesheet" href="css/daterangepicker.css">
+  <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
+  <!--select 2-->
+  <link rel="stylesheet" href="css/select2.min.css">
+  <link rel="stylesheet" href="css/select2-bootstrap4.min.css">
   <!--Estilos propios-->
   <link rel="stylesheet" href="css/admin.css">
 

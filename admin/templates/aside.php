@@ -67,7 +67,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="crear-eventos.php" class="nav-link">
+                <a href="crear-evento.php" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
                   <p>Agregar</p>
                 </a>
