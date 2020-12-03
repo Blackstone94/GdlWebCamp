@@ -1,5 +1,5 @@
 <?php
-    die(json_encode($_POST));
+  //  die(json_encode($_POST));
   if(isset($_POST['registro'])){
     switch($_POST['registro']){
       case "nuevo":
@@ -15,27 +15,24 @@
   }
 
   function nuevo_registro(){
-    $usuario=$_POST['usuario'];
-    $nombre=$_POST['nombre'];
-    $password=$_POST['password'];
+    $nombre=$_POST['titulo'];
+    $fecha=$_POST['fecha'];
+    $fechaFormateada=date('Y-m-d',strtotime($fecha));
 
-    //por default costo en 10
-    $opciones=array(
-      'cost'=>12//mas interaciones
-    );
-    //encriptar password
-    $password_hashed=password_hash($password,PASSWORD_BCRYPT,$opciones);
+    $categoria_evento=$_POST['categoria_evento'];
+    $hora_evento=$_POST['hora_evento'];
+    $invitado=$_POST['invitado'];
     try{
       include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("INSERT INTO admins(usuario,nombre,password) values(?,?,?)");
-      $stmt->bind_param("sss",$usuario,$nombre,$password_hashed);
+      $stmt=$conn->prepare("INSERT INTO eventos(nombre_evento,fecha_evento,hora_evento,id_cat_evento,id_inv) values(?,?,?,?,?)");
+      $stmt->bind_param("sssii",$nombre,$fechaFormateada,$hora_evento,$categoria_evento,$invitado);
       $stmt->execute();
 
       $id_registro=$stmt->insert_id;
       if($id_registro>0){//se inserto?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id_admin'=>$id_registro
+          'id_evento'=>$id_registro
         );
       }else{
           $respuesta=array(

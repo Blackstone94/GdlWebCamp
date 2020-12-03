@@ -97,4 +97,9 @@ include_once('templates/aside.php')?>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
-    </section>  
+    </section>
+    </div>
+  <!-- /.content-wrapper -->
+
+  <?php include_once('templates/footer.php')?>
+

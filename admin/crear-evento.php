@@ -16,7 +16,7 @@ include_once 'templates/aside.php'?>
             </h1>
           </div>
           <div class="col-md-8">
-            <form role="form" method="post" id="modelo-evento" name="crear-evento" action="modelo-evento.php">
+            <form role="form" method="post" id="modelo-admin" name="crear-evento" action="modelo-evento.php">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="titulo">Titulo:</label>
@@ -27,7 +27,7 @@ include_once 'templates/aside.php'?>
                  <div class="form-group">
                     <label>Fecha evento:</label>
                       <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                          <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                          <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="fecha"/>
                           <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                           </div>
