@@ -10,8 +10,6 @@ include_once('funciones/funciones.php');
    include_once('templates/aside.php');
 ?>
 
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
