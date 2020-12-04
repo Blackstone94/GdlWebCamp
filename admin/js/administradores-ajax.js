@@ -1,6 +1,5 @@
 $(document).ready(function(){//termino de cargar el html
   $('#modelo-admin').on('submit',function(e){
-    console.log("hiciste click");
      e.preventDefault();
      var datos=$(this).serializeArray();
 
@@ -19,9 +18,9 @@ $(document).ready(function(){//termino de cargar el html
               'Se agrego correctamente el administrador: ',
               'success'
             );
-            setTimeout(function(){
+        /*    setTimeout(function(){
               window.location.href='lista-admin.php';
-            },2000);
+            },2000);*/
           }else{
             swal({
               icon: 'error',
@@ -39,10 +38,10 @@ $('.borrarRegistro').on('click',function(e){
 
   var id=$(this).attr('data-id');
   var tipo=$(this).attr('data-tipo');
-
+  console.log('modelo-'+tipo+'.php');
   swal({
     title: "Estas seguro?",
-    text: "Quieres eliminar este administrador",
+    text: "Quieres eliminar este registro",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -50,6 +49,8 @@ $('.borrarRegistro').on('click',function(e){
   })
   .then((willDelete) => {
     if (willDelete) {
+      console.log(tipo);
+      console.log(id);
       $.ajax({
         type:'post',
         data:{
@@ -57,10 +58,11 @@ $('.borrarRegistro').on('click',function(e){
           'registro' : 'eliminar'
         },
         url:'modelo-'+tipo+'.php',
+
         success : function(data){
           var result=JSON.parse(data);
           if(result.respuesta=="correcto"){
-            jQuery('[data-id="'+result.id_admin+'"]').parents('tr').remove();
+            jQuery('[data-id="'+result.id+'"]').parents('tr').remove();
             swal(
               'Operacion satisfactoria!',
               'Se elimino correctamente el administrador: ',

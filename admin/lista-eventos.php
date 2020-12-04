@@ -69,7 +69,7 @@ include_once('templates/aside.php')?>
                             <a href="editar-evento.php?id=<?php echo $evento['evento_id']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a href="#" data-id="<?php echo $evento['evento_id']?>" data-tipo="evento" class="btn bg-maroon btn-flat margin borrarRegistro ">
+                            <a href="#" data-id="<?php echo $evento['evento_id']?>" data-tipo="evento" class="btn bg-maroon btn-flat margin borrarRegistro">
                               <i class="fas fa-trash"></i>
                             </a>
                           </td>

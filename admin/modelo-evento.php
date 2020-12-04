@@ -1,5 +1,4 @@
 <?php
-//  die(json_encode($_POST));
 if (isset($_POST['registro'])) {
     switch ($_POST['registro']) {
         case "nuevo":
@@ -14,9 +13,7 @@ if (isset($_POST['registro'])) {
     }
 }
 
-function nuevo_registro()
-{
-
+function nuevo_registro(){
     $nombre = $_POST['titulo'];
     $fecha = $_POST['fecha'];
     $fechaFormateada = date('Y-m-d', strtotime($fecha));
@@ -55,7 +52,6 @@ function nuevo_registro()
 }
 
 function editar_registro(){
-
     $nombre = $_POST['titulo'];
     $fecha = $_POST['fecha'];
     $fechaFormateada = date('Y-m-d', strtotime($fecha));
@@ -91,28 +87,27 @@ function editar_registro(){
         );
     }
     die(json_encode($respuesta));
-
 }
 
 function eliminar_registro()
 {
     $id = $_POST['id'];
-
     try {
         include_once 'funciones/funciones.php';
-        $stmt = $conn->prepare("DELETE FROM admins WHERE id=?");
+        $stmt = $conn->prepare("DELETE FROM eventos WHERE evento_id=?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
 
         if ($stmt->affected_rows) { //se borro?
             $respuesta = array(
                 'respuesta' => 'correcto',
-                'id_admin' => $id,
+                'id' => $id,
                 'mensaje' => 'Registro eliminado correctamente',
             );
         } else {
             $respuesta = array(
                 'respuesta' => 'error',
+                'detalle'=>$stmt->error,
             );
         }
         $stmt->close();
@@ -120,7 +115,7 @@ function eliminar_registro()
     } catch (Exception $e) {
         $respuesta = array(
             'respuesta' => 'error',
-            'detalle' => $e->getMessage(),
+            'detalle' => $e,
         );
     }
     die(json_encode($respuesta));

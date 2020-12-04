@@ -106,7 +106,7 @@
       if($stmt->affected_rows){//se borro?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id_admin'=>$id,
+          'id'=>$id,
           'mensaje'=>'Registro eliminado correctamente'
         );
       }else{
