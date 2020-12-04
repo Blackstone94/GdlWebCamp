@@ -84,13 +84,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="lista-categorias.php" class="nav-link">
                   <i class="fa fa-list nav-icon"></i>
                   <p>Ver todos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="crear-categorias.php" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
                   <p>Agregar</p>
                 </a>
