@@ -105,15 +105,3 @@ include_once 'templates/aside.php'?>
 
   <?php include_once 'templates/footer.php'?>
 
-  <script>
-  $(function () {
-        //Date range picker
-        $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
-        //Timepicker
-    $('#timepicker').datetimepicker({
-      format: 'LT'
-    })
-  })
-</script>

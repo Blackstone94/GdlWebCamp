@@ -38,9 +38,11 @@
 
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
+<!-- picker selected font awesome--->
+<script src="js/fontawesome-iconpicker.min.js"></script>
 <!-- logueo -->
 <script src="js/login-ajax.js"></script>
-<!--tablas-->
+<!--app-->
 <script src="js/app.js"></script>
 <!--ajax js-->
 <script src="js/administradores-ajax.js"></script>

@@ -25,6 +25,8 @@
   <!--select 2-->
   <link rel="stylesheet" href="css/select2.min.css">
   <link rel="stylesheet" href="css/select2-bootstrap4.min.css">
+  <!--fontawesome picker-->
+  <link rel="stylesheet" href="css/fontawesome-iconpicker.min.css">
   <!--Estilos propios-->
   <link rel="stylesheet" href="css/admin.css">
 

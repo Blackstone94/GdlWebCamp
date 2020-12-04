@@ -38,5 +38,15 @@
         $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
         $('#crear-registro').attr('disabled',true);
       }
+    });
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+        //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
     })
+    $('#icono').iconpicker();
  });
