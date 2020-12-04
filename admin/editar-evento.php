@@ -26,7 +26,6 @@ include_once('funciones/funciones.php');
                $resultado = $conn->query($sql);
                $evento=$resultado->fetch_assoc();
                $fecha=$evento['fecha_evento'];
-               echo $fecha;
                $fechaFormateada = date('m/d/Y',strtotime($fecha));
             ?>
             <form role="form" method="post" id="modelo-admin" name="crear-evento" action="modelo-evento.php">
@@ -79,7 +78,7 @@ include_once('funciones/funciones.php');
                       <label>Hora del evento:</label>
                       <?php
                           $hora =  $evento['hora_evento'];
-                          $horaFormateada=date('h:i a',strtotime($hora));
+                          $horaFormateada=date('h:i',strtotime($hora));
                       ?>
                       <div class="input-group date" id="timepicker" data-target-input="nearest" >
                         <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="hora_evento" value="<?php echo $horaFormateada?>"/>
@@ -122,8 +121,9 @@ include_once('funciones/funciones.php');
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <input type="hidden" name="registro" value="nuevo">
-                  <button type="submit" class="btn btn-primary" id="crear-registro_evento">Añadir </button>
+                  <input type="hidden" name="registro" value="editar">
+                  <input type="hidden" name="id_registro" value="<?php echo $evento["evento_id"]?>">
+                  <button type="submit" class="btn btn-primary" id="crear-registro_evento">Modificar </button>
                 </div>
             </form>
 

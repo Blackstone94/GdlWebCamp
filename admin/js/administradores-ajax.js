@@ -1,7 +1,11 @@
 $(document).ready(function(){//termino de cargar el html
   $('#modelo-admin').on('submit',function(e){
+    console.log("hiciste click");
      e.preventDefault();
      var datos=$(this).serializeArray();
+
+     console.log($(this).serializeArray());
+
      $.ajax({
         type: $(this).attr('method'),
         data: datos,
