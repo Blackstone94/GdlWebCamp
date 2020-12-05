@@ -55,7 +55,7 @@ include_once('templates/aside.php')?>
                       while($categoria=$resultado->fetch_assoc()){?>
                         <tr>
                           <td><?php echo $categoria['cat_evento']?></td>
-                          <td> <i class="fa <?php echo $categoria['icono']?>"> </i></td>
+                          <td> <i class="<?php echo $categoria['icono']?>"> </i></td>
                           <td>
                             <a href="editar-categoria.php?id=<?php echo $categoria['id_categoria']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>
