@@ -17,7 +17,7 @@ $(document).ready(function(){//termino de cargar el html
           if(resultado.respuesta=='correcto'){
             swal(
               'Operacion satisfactoria!',
-              'Se agrego correctamente el administrador: ',
+              'Se agrego correctamente el registro: ',
               'success'
             );
         /*    setTimeout(function(){
@@ -67,7 +67,7 @@ $('.borrarRegistro').on('click',function(e){
             jQuery('[data-id="'+result.id+'"]').parents('tr').remove();
             swal(
               'Operacion satisfactoria!',
-              'Se elimino correctamente el administrador: ',
+              'Se elimino correctamente el registro: ',
               'success'
             );
           }
@@ -79,4 +79,40 @@ $('.borrarRegistro').on('click',function(e){
   });
 });
 
+//guardar registro con imagen
+  $('.guardar-registro-archivos').on('submit',function(e){
+    e.preventDefault();
+    var datos=new FormData(this);
+
+    console.log($(this).serializeArray());
+    console.log($(this).attr('action'));
+
+    $.ajax({
+       type: $(this).attr('method'),
+       data: datos,
+       url: $(this).attr('action'),
+       dataType: 'json',
+       contentType:false,
+       processData:false,
+       async: true,
+       cache:false,
+       success:function(data){
+         var resultado=data;
+         if(resultado.respuesta=='correcto'){
+           swal(
+             'Operacion satisfactoria!',
+             'Se agrego correctamente el registro: ',
+             'success'
+           );
+         }else{
+           swal({
+             icon: 'error',
+             title: 'Error',
+             text: 'Ocurrio un error',
+           })
+         }
+         console.log(data);
+       }
+    })
+  });
 });

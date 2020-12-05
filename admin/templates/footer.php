@@ -35,6 +35,8 @@
 
 <!-- select 2 -->
 <script src="js/select2.full.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="js/bs-custom-file-input.min.js"></script>
 
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
