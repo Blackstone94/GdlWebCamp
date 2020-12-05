@@ -60,7 +60,7 @@ include_once('templates/aside.php')?>
                             <a href="editar-categoria.php?id=<?php echo $categoria['id_categoria']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a href="#" data-id="<?php echo $categoria['id_categoria']?>" data-tipo="categoria" class="btn bg-maroon btn-flat margin borrarRegistro ">
+                            <a href="#" data-id="<?php echo $categoria['id_categoria']?>" data-tipo="categorias" class="btn bg-maroon btn-flat margin borrarRegistro ">
                               <i class="fas fa-trash"></i>
                             </a>
                           </td>

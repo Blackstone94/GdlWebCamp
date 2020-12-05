@@ -83,7 +83,7 @@
 
     try{
       include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("DELETE FROM categoria_evento WHERE id=?");
+      $stmt=$conn->prepare("DELETE FROM categoria_evento WHERE id_categoria=?");
       $stmt->bind_param("i",$id);
       $stmt->execute();
 
