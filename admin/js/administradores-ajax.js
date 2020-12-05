@@ -4,6 +4,7 @@ $(document).ready(function(){//termino de cargar el html
      var datos=$(this).serializeArray();
 
      console.log($(this).serializeArray());
+     console.log($(this).attr('action'));
 
      $.ajax({
         type: $(this).attr('method'),
@@ -12,6 +13,7 @@ $(document).ready(function(){//termino de cargar el html
         dataType: 'json',
         success:function(data){
           var resultado=data;
+          console.log(resultado);
           if(resultado.respuesta=='correcto'){
             swal(
               'Operacion satisfactoria!',

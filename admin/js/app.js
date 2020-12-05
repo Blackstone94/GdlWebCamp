@@ -23,7 +23,7 @@
           search: 'Buscar'
         }
     });
-    $('#crear-registro').attr('disabled',true);
+    $('#crear-registro-admin').attr('disabled',true);
 
     $('#repetirPassword').on('blur',function(){
       var passwordNuevo=$('#password').val();
@@ -31,12 +31,12 @@
         $('#resultadoPassword').text('Correcto');
         $('#resultadoPassword').parents('.form-group').addClass('has-success').removeClass('has-error');
         $('input#password').parents('.form-group').addClass('has-success').removeClass('has-error');
-        $('#crear-registro').attr('disabled',false);
+        $('#crear-registro-admin').attr('disabled',false);
       }else{
         $('#resultadoPassword').text('No son iguales');
         $('#resultadoPassword').parents('.form-group').addClass('has-error').removeClass('has-success');
         $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
-        $('#crear-registro').attr('disabled',true);
+        $('#crear-registro-admin').attr('disabled',true);
       }
     });
 

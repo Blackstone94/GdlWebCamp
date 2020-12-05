@@ -1,5 +1,4 @@
 <?php
-
   if(isset($_POST['registro'])){
     switch($_POST['registro']){
       case "nuevo":
@@ -15,31 +14,26 @@
   }
 
   function nuevo_registro(){
-    $usuario=$_POST['usuario'];
-    $nombre=$_POST['nombre'];
-    $password=$_POST['password'];
+    $cat_evento=$_POST['cat_evento'];
+    $icono=$_POST['icono'];
+    //die(json_encode($_POST));
 
-    //por default costo en 10
-    $opciones=array(
-      'cost'=>12//mas interaciones
-    );
-    //encriptar password
-    $password_hashed=password_hash($password,PASSWORD_BCRYPT,$opciones);
     try{
       include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("INSERT INTO admins(usuario,nombre,password) values(?,?,?)");
-      $stmt->bind_param("sss",$usuario,$nombre,$password_hashed);
+      $stmt=$conn->prepare("INSERT INTO categoria_evento(cat_evento,icono) values(?,?)");
+      $stmt->bind_param("ss",$cat_evento,$icono);
       $stmt->execute();
 
       $id_registro=$stmt->insert_id;
       if($id_registro>0){//se inserto?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id_admin'=>$id_registro
+          'id'=>$id_registro
         );
       }else{
           $respuesta=array(
-            'respuesta'=>'error'
+            'respuesta'=>'error',
+            'detalle'=>$stmt->error
           );
       }
       $stmt->close();
@@ -99,7 +93,7 @@
 
     try{
       include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("DELETE FROM admins WHERE id=?");
+      $stmt=$conn->prepare("DELETE FROM categoria_evento WHERE id=?");
       $stmt->bind_param("i",$id);
       $stmt->execute();
 

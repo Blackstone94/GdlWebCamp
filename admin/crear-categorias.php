@@ -16,19 +16,15 @@ include_once('templates/aside.php')?>
             </h1>
           </div>
           <div class="col-md-8">
-            <form role="form" method="post" id="modelo-admin" name="crear-admin" action="modelo-admin.php">
+            <form role="form" method="post" id="modelo-admin" name="crear-admin" action="modelo-categorias.php">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de usuario">
-                  </div>
-                  <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo">
+                    <label for="cat_evento">Nombre categoria:</label>
+                    <input type="text" class="form-control" id="cat_evento" name="cat_evento" placeholder="Nombre de la categoria">
                   </div>
 
                   <div class="form-group">
-                    <label>Icono</label>
+                    <label for="icono">Icono</label>
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <spam class="input-group-text">
