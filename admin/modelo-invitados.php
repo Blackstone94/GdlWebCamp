@@ -1,7 +1,13 @@
 <?php
+   //
+  $nombre = $_POST['nombre_invitado'];
+  $apellido= $_POST['apellido_invitado'];
+  $biografia=$_POST['biografia_invitado'];
+
   if(isset($_POST['registro'])){
     switch($_POST['registro']){
       case "nuevo":
+       // die  (json_encode($_FILES));
         nuevo_registro();
       break;
       case "editar":
@@ -14,36 +20,45 @@
   }
 
   function nuevo_registro(){
-    $respuesta=array(
-      'post'=> $_POST,
-      'files'=>$_FILES
-    );
-    die (json_encode($respuesta));
+    $nombre = $_POST['nombre_invitado'];
+    $apellido= $_POST['apellido_invitado'];
+    $biografia=$_POST['biografia_invitado'];
 
-    $cat_evento=$_POST['cat_evento'];
-    $icono=$_POST['icono'];
-    //die(json_encode($_POST));
-
+   $directorio="../img/invitados/";
+    if(!is_dir($directorio)){
+      mkdir($directorio,0755,true);//codigo de permisos y recursivo (a todos los archivos dentro del directorio se le agrega el mismo permiso)
+    }
     try{
-      include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("INSERT INTO categoria_evento(cat_evento,icono) values(?,?)");
-      $stmt->bind_param("ss",$cat_evento,$icono);
-      $stmt->execute();
+      if(move_uploaded_file($_FILES['archivo_imagen']['tmp_name'],$directorio.$_FILES['archivo_imagen']['name'])){
+        $imagen_url=$_FILES['archivo_imagen']['name'];
 
-      $id_registro=$stmt->insert_id;
-      if($id_registro>0){//se inserto?
-        $respuesta =array(
-          'respuesta'=>'correcto',
-          'id'=>$id_registro
-        );
-      }else{
-          $respuesta=array(
-            'respuesta'=>'error',
-            'detalle'=>$stmt->error
+        $imagen_resultado="Se subio correctamente";
+        include_once('funciones/funciones.php');
+        $stmt=$conn->prepare("INSERT INTO invitados(nombre_invitado,apellido_invitado,descripcion,url_imagen) values(?,?,?,?)");
+        $stmt->bind_param("ssss",$nombre,$apellido,$biografia,$imagen_url);
+        $stmt->execute();
+
+        $id_registro=$stmt->insert_id;
+        if($id_registro>0){//se inserto?
+          $respuesta =array(
+            'respuesta'=>'correcto',
+            'id'=>$id_registro,
+            'imagen_resultado'=>$imagen_resultado
           );
+        }else{
+            $respuesta=array(
+              'respuesta'=>'error',
+              'detalle'=>$stmt->error
+            );
+        }
+        $stmt->close();
+        $conn->close();
+      }else{
+        $respuesta=array(
+          'respuesta'=>'error',
+          'detalle'=>error_get_last()
+        );
       }
-      $stmt->close();
-      $conn->close();
     }catch(Exception $e){
       $respuesta=array(
         'respuesta'=>'error',
@@ -52,9 +67,8 @@
     }
     die(json_encode($respuesta));
   }
-  
-  function editar_registro(){
 
+  function editar_registro(){
     $cat_evento=$_POST['cat_evento'];
     $icono=$_POST['icono'];
     $id=$_POST['id_registro'];

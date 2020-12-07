@@ -80,12 +80,12 @@ $('.borrarRegistro').on('click',function(e){
 });
 
 //guardar registro con imagen
-  $('.guardar-registro-archivos').on('submit',function(e){
+  $('#guardar-registro-archivos').on('submit',function(e){
     e.preventDefault();
     var datos=new FormData(this);
 
     console.log($(this).serializeArray());
-    console.log($(this).attr('action'));
+    console.log($(this).attr('action')+" archivos");
 
     $.ajax({
        type: $(this).attr('method'),
@@ -98,6 +98,7 @@ $('.borrarRegistro').on('click',function(e){
        cache:false,
        success:function(data){
          var resultado=data;
+         console.log(resultado);
          if(resultado.respuesta=='correcto'){
            swal(
              'Operacion satisfactoria!',
@@ -111,7 +112,6 @@ $('.borrarRegistro').on('click',function(e){
              text: 'Ocurrio un error',
            })
          }
-         console.log(data);
        }
     })
   });
