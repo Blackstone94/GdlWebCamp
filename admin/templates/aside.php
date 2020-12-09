@@ -56,7 +56,6 @@
               <p>
                 Eventos
                 <i class="fas fa-angle-left right"></i>
-
               </p>
             </a>
             <ul class="nav nav-treeview">

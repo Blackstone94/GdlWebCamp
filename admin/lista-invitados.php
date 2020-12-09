@@ -1,11 +1,10 @@
 <?php
-include_once('funciones/sesiones.php');
-include_once('funciones/funciones.php');
-include_once('templates/header.php');
-include_once('templates/barra.php');
-include_once('templates/aside.php')?>
-
-
+  include_once('funciones/sesiones.php');
+  include_once('funciones/funciones.php');
+  include_once('templates/header.php');
+  include_once('templates/barra.php');
+  include_once('templates/aside.php')
+  ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -59,10 +58,10 @@ include_once('templates/aside.php')?>
                           <td> <?php echo $invitado['descripcion']?></td>
                           <td> <?php echo $invitado['url_imagen']?></td>
                           <td>
-                            <a href="editar-invitados.php?id=<?php echo $invitado['id_invitado']?>" class="btn bg-orange btn-flat margin">
+                            <a href="editar-invitados.php?id=<?php echo $invitado['invitado_id']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a href="#" data-id="<?php echo $invitado['id_invitado']?>" data-tipo="invitados" class="btn bg-maroon btn-flat margin borrarRegistro ">
+                            <a href="#" data-id="<?php echo $invitado['invitado_id']?>" data-tipo="invitados" class="btn bg-maroon btn-flat margin borrarRegistro ">
                               <i class="fas fa-trash"></i>
                             </a>
                           </td>
