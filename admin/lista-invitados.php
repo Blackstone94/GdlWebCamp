@@ -56,7 +56,7 @@
                         <tr>
                           <td><?php echo $invitado['nombre_invitado']." ".$invitado['apellido_invitado']?></td>
                           <td> <?php echo $invitado['descripcion']?></td>
-                          <td> <?php echo $invitado['url_imagen']?></td>
+                          <td> <img src="../img/invitados/<?php echo $invitado['url_imagen']?>" width="100"></td>
                           <td>
                             <a href="editar-invitados.php?id=<?php echo $invitado['invitado_id']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>

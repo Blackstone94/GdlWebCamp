@@ -56,6 +56,7 @@ include_once('templates/aside.php')?>
 
                 <div class="card-footer">
                   <input type="hidden" name="registro" value="editar">
+                  <input type="hidden" name="imagen_anterior" value="<?php echo $invitado['url_imagen']?>">
                   <input type="hidden" name="id_registro" value="<?php echo $invitado['invitado_id']?>">
                   <button type="submit" class="btn btn-primary" id="crear-registro">Añadir </button>
                 </div>
