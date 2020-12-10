@@ -129,13 +129,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="lista-registrados.php" class="nav-link">
                   <i class="fa fa-list nav-icon"></i>
                   <p>Ver todos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="crear.registrados" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
                   <p>Agregar</p>
                 </a>
