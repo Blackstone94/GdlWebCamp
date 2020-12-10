@@ -1,9 +1,5 @@
 <?php
    //
-  $nombre = $_POST['nombre_invitado'];
-  $apellido= $_POST['apellido_invitado'];
-  $biografia=$_POST['biografia_invitado'];
-
   if(isset($_POST['registro'])){
     switch($_POST['registro']){
       case "nuevo":
@@ -128,10 +124,15 @@
 
   function eliminar_registro(){
     $id=$_POST['id'];
-
     try{
       include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("DELETE FROM categoria_evento WHERE id_categoria=?");
+      $sql="SELECT url_imagen FROM invitados WHERE invitado_id=$id";
+      $resultado = $conn->query($sql);
+      $invitado=$resultado->fetch_assoc();
+      $directorio="../img/invitados/";
+      unlink($directorio.$invitado['url_imagen']);//borrar imagen anterior
+
+      $stmt=$conn->prepare("DELETE FROM invitados WHERE invitado_id=?");
       $stmt->bind_param("i",$id);
       $stmt->execute();
 

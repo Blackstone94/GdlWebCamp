@@ -51,8 +51,6 @@ $('.borrarRegistro').on('click',function(e){
   })
   .then((willDelete) => {
     if (willDelete) {
-      console.log(tipo);
-      console.log(id);
       $.ajax({
         type:'post',
         data:{
