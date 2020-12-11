@@ -882,6 +882,12 @@ div.paquetes .tabla-precios input{
   font-weight: bold;
 }
 
+.contenido-dia .autor{
+  font-weight: bold;
+  font-family: arial,Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+
+}
 /*****************RESUMEN REGISTRO************************/
 
 div.resmen p{
@@ -987,6 +993,7 @@ div.cboxElement img{
 .error{
   background-color: red;
 }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
