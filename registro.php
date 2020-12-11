@@ -76,6 +76,25 @@
       <div id="eventos" class="eventos clearfix">
         <h3>Elige tus talleres</h3>
         <div class="caja">
+          <?php
+            try{
+              include_once('includes/funciones/bd_conexion.php');
+              $sql="SELECT eventos.*,categoria_evento.cat_evento,invitados.nombre_invitado,invitados.apellido_invitado ";
+              $sql.=" FROM eventos ";
+              $sql.=" JOIN categoria_evento on id_categoria=id_cat_evento ";
+              $sql.=" JOIN invitados on id_inv=invitado_id ";
+              $sql.=" ORDER BY eventos.fecha_evento ";
+
+              $resultado=$conn->query($sql);
+
+            }catch(Exception $e){
+              echo $e->getMessage();
+            }
+              $eventos=$resultado->fetch_assoc();
+              echo "<pre>";
+               var_dump ($eventos);
+              echo "</pre>";
+          ?>
               <div id="viernes" class="contenido-dia clearfix">
                   <h4>Viernes</h4>
                       <div>
