@@ -14,4 +14,41 @@
 .fade{
   opacity: 1 !important;
 }
+.tabla-precios ul,
+ul.lista-precios{
+  list-style:none;
+  padding: 0;
+  margin: 0;
+}
 
+ul.lista-precios li .numero{
+  font-size: 30px;
+}
+.tabla-precios h3{
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fe4918;
+}
+.contenido-dia label{
+  font-weight: normal;
+}
+.contenido-dia time{
+  color: #fe4918;
+  font-weight: bold;
+}
+.contenido-dia{
+  display: none;
+}
+@media only screen and (min-width: 768px){
+  div.contenido-dia > div {
+      float: left;
+      width: calc(33.33% - 20px)
+  }
+}
+h4.nombre-dia{
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fe4918;
+}

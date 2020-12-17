@@ -135,7 +135,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="crear.registrados" class="nav-link">
+                <a href="crear-registrados.php" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
                   <p>Agregar</p>
                 </a>

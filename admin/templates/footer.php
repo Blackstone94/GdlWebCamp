@@ -46,8 +46,8 @@
 <script src="js/login-ajax.js"></script>
 <!--app-->
 <script src="js/app.js"></script>
+<script src="../js/cotizador.js"></script>
 <!--ajax js-->
 <script src="js/administradores-ajax.js"></script>
-
 </body>
 </html>

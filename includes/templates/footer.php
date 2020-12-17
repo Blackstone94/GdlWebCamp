@@ -44,6 +44,7 @@
     }
   ?>
   <script src="js/main.js"></script>
+  <script src="js/cotizador.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

@@ -49,4 +49,5 @@
       format: 'LT'
     })
     $('#icono').iconpicker();
+
  });
