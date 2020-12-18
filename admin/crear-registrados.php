@@ -137,7 +137,7 @@ include_once 'templates/aside.php'?>
                                       <p> <?php echo $tipo ?></p>
                                       <?php foreach ($evento_dia as $evento) {?>
                                           <label>
-                                            <input type="checkbox" name="registro[]" id="<?php echo $evento['id'] ?>" value="<?php echo $evento['id'] ?>">
+                                            <input type="checkbox" name="registro_evento[]" id="<?php echo $evento['id'] ?>" value="<?php echo $evento['id'] ?>">
                                             <time><?php echo $evento['hora'] ?></time> <?php echo $evento['nombre_evento'] ?>
                                             <br>
                                             <span class="autor"><?php echo $evento['nombre_invitado'] ?></span>
@@ -189,15 +189,13 @@ include_once 'templates/aside.php'?>
 
                           </div>
                           <input type="hidden" name="total_pedido" id="total_pedido">
-                          <input type="submit" name="submit" class="button" value="Pagar" id="btnRegistro"/>
-
                         </div><!--total-->
                       </div><!--caja-->
                   </div><!--resumen-->
 
                 <div class="card-footer">
                   <input type="hidden" name="registro" value="nuevo">
-                  <button type="submit" class="btn btn-primary" id="btn-registro">Añadir </button>
+                  <button type="submit" class="btn btn-primary" id="btnRegistro">Añadir </button>
                 </div>
             </form>
           </div><!--div columnas 80%-->

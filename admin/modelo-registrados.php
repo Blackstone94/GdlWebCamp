@@ -14,26 +14,40 @@
   }
 
   function nuevo_registro(){
-    $cat_evento=$_POST['cat_evento'];
-    $icono=$_POST['icono'];
-    //die(json_encode($_POST));
+    include_once('funciones/funciones.php');
+    //  die(json_encode($_POST));
+    $boletos_adquiridos=$_POST['boletos'];
+
+    $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+    $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+
+    $pedido=productos_json($boletos_adquiridos,$camisas,$etiquetas);
+    $talleres=eventos_json($_POST['registro_evento']);
+
+    $nombre=$_POST['nombre'];
+    $apellido=$_POST['apellido'];
+    $email=$_POST['email'];
+    $regalo=$_POST['regalo'];
+    $total=$_POST['total_pedido'];
+    $fecha=getdate();
 
     try{
-      include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("INSERT INTO categoria_evento(cat_evento,icono) values(?,?)");
-      $stmt->bind_param("ss",$cat_evento,$icono);
+      include_once 'funciones/funciones.php';
+      $stmt=$conn->prepare(" INSERT INTO registrados (nombre_registrado,apellido_registrado,email_registrado,pases_articulos,talleres_registrados,regalo,total_pagado,fecha_registro)  VALUES ( ? , ? , ? ,? , ? , ? , ? ,NOW()) ");
+      $stmt->bind_param("sssssis",$nombre,$apellido,$email,$pedido,$talleres,$regalo,$total);
       $stmt->execute();
 
-      $id_registro=$stmt->insert_id;
-      if($id_registro>0){//se inserto?
+      $id_registro = $stmt->insert_id;
+      if($id_registro > 0){//se inserto?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id'=>$id_registro
+          'id_insertado'=>$id_registro
         );
       }else{
           $respuesta=array(
             'respuesta'=>'error',
-            'detalle'=>$stmt->error
+            'detalle'=>$stmt->error,
+            'pedido'=>$pedido
           );
       }
       $stmt->close();
@@ -41,10 +55,12 @@
     }catch(Exception $e){
       $respuesta=array(
         'respuesta'=>'error',
-        'detalle'=>$e->getMessage()
+        'detalle'=>$e.getMessage()
       );
     }
+
     die(json_encode($respuesta));
+
   }
   function editar_registro(){
 

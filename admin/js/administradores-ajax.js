@@ -3,7 +3,7 @@ $(document).ready(function(){//termino de cargar el html
      e.preventDefault();
      var datos=$(this).serializeArray();
 
-     console.log($(this).serializeArray());
+     console.log(datos);
      console.log($(this).attr('action'));
 
      $.ajax({
@@ -14,6 +14,7 @@ $(document).ready(function(){//termino de cargar el html
         success:function(data){
           var resultado=data;
           console.log(resultado);
+
           if(resultado.respuesta=='correcto'){
             swal(
               'Operacion satisfactoria!',
@@ -27,10 +28,10 @@ $(document).ready(function(){//termino de cargar el html
             swal({
               icon: 'error',
               title: 'Error',
-              text: 'Ocurrio un error',
+              text: resultado.detalle
             })
           }
-          console.log(data);
+     //     console.log(data);
         }
      })
   });
