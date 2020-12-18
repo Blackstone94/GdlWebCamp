@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded',function(){
-  if(filename()=="registro.php" || filename()=="crear-registrados.php"){
+  console.log("ook");
+  if(filename()=="registro.php" || filename()=="crear-registrados.php"
+  || filename().includes("editar-registrados.php")){
+    console.log("entro");
     // variable usuario
      var nombre=document.getElementById("nombre");
      var apellido=document.getElementById("apellido");
@@ -26,6 +29,14 @@ document.addEventListener('DOMContentLoaded',function(){
      pase_dia.addEventListener('blur',mostrarDias);
      pase_completo.addEventListener('blur',mostrarDias);
      pase_dosDias.addEventListener('blur',mostrarDias);
+
+     var formularioEditar=document.getElementsByClassName("editar-registrados");
+     if(formularioEditar.length>0){
+      if(pase_dia.value || pase_completo.value || pase_dosDias.value){
+        console.log("condicion ok ");
+        mostrarDias();
+      }
+     }
 
      nombre.addEventListener('blur',validarCampos);
      apellido.addEventListener('blur',validarCampos);
@@ -125,7 +136,9 @@ document.addEventListener('DOMContentLoaded',function(){
 
 function filename(){//nombre del archivo actual
   var rutaAbsoluta = self.location.href;
+  console.log(rutaAbsoluta);
   var posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
   var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
+  console.log(rutaRelativa);
   return rutaRelativa;
 }
