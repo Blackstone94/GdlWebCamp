@@ -80,8 +80,10 @@
                                   'etiquetas'=>'Etiquetas'
                                 );
                                 foreach($articulos as $llave=>$articulo){
-                                  if(is_array($articulo))
-                                    echo $articulo['cantidad'] ."  ".$arreglo_articulos[$llave]."<br>";
+                                  if(is_array($articulo)){
+                                    if($articulo['cantidad']>0)
+                                      echo $articulo['cantidad'] ."  ".$arreglo_articulos[$llave]."<br>";
+                                  }
                                    else
                                      echo $articulo ."  ".$arreglo_articulos[$llave]."<br>";
                                 }
@@ -90,14 +92,14 @@
                                $eventos_resultado=$registrado['talleres_registrados'];
                                $talleres = json_decode($eventos_resultado,true);
                                $talleres = implode("','",$talleres['eventos']);
-                               $sql_talleres="SELECT nombre_evento,fecha_evento,hora_evento FROM eventos WHERE clave in ('$talleres')";
+                               $sql_talleres="SELECT nombre_evento,fecha_evento,hora_evento FROM eventos WHERE clave in ('$talleres') or evento_id in ('$talleres')";
                                $resultado_talleres= $conn->query($sql_talleres);
                                while($eventos=$resultado_talleres->fetch_assoc()){
                                   echo $eventos['nombre_evento']."   ".$eventos['fecha_evento']."  ". $eventos['hora_evento']."<br>";
                                }
                           ?></td>
                           <td><?php echo $registrado['nombre_regalo']?></td>
-                          <td><?php echo $registrado['total_pagado']?></td>
+                          <td><?php echo (float) $registrado['total_pagado']?></td>
                           <td>
                             <a href="editar-registrados.php?id=<?php echo $registrado['id_registrado']?>" class="btn bg-orange btn-flat margin">
                               <i class="fas fa-pencil-alt"></i>

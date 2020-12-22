@@ -107,33 +107,33 @@
   }
 
   function eliminar_registro(){
+    include_once('funciones/funciones.php');
     $id=$_POST['id'];
-
     try{
-      include_once('funciones/funciones.php');
-      $stmt=$conn->prepare("DELETE FROM categoria_evento WHERE id_categoria=?");
+     // include_once 'funciones/funciones.php';
+      $stmt=$conn->prepare("DELETE FROM  registrados WHERE id_registrado=?");
       $stmt->bind_param("i",$id);
       $stmt->execute();
 
-      if($stmt->affected_rows){//se borro?
-        $respuesta =array(
-          'respuesta'=>'correcto',
-          'id'=>$id,
-          'mensaje'=>'Registro eliminado correctamente'
-        );
-      }else{
-          $respuesta=array(
-            'respuesta'=>'error'
+      if ($stmt->affected_rows) { //se modifico?
+          $respuesta =array(
+            'respuesta'=>'correcto',
+            'id'=>$id
           );
+        }else{
+            $respuesta=array(
+              'respuesta'=>'error',
+            );
+        }
+        $stmt->close();
+        $conn->close();
+      }catch(Exception $e){
+        $respuesta=array(
+          'respuesta'=>'error',
+          'detalle'=>$e.getMessage()
+        );
       }
-      $stmt->close();
-      $conn->close();
-    }catch(Exception $e){
-      $respuesta=array(
-        'respuesta'=>'error',
-        'detalle'=>$e->getMessage()
-      );
-    }
+
     die(json_encode($respuesta));
   }
 ?>
