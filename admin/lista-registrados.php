@@ -73,14 +73,17 @@
                           <td><?php echo $registrado['fecha_registro']?></td>
                           <td><?php $articulos=json_decode($registrado['pases_articulos'],true);//objeto php
                                 $arreglo_articulos=array(
-                                  'un dia'=>'Pase un dia',
-                                  'pase_2dias'=>'Pase 2 dias',
+                                  'un_dia'=>'Pase un dia',
+                                  'pase_dosDias'=>'Pase 2 dias',
                                   'pase_completo'=>'Pase completo',
                                   'camisas'=>'Camisas',
                                   'etiquetas'=>'Etiquetas'
                                 );
                                 foreach($articulos as $llave=>$articulo){
-                                  echo $articulo ."  ".$arreglo_articulos[$llave]."<br>";
+                                  if(is_array($articulo))
+                                    echo $articulo['cantidad'] ."  ".$arreglo_articulos[$llave]."<br>";
+                                   else
+                                     echo $articulo ."  ".$arreglo_articulos[$llave]."<br>";
                                 }
                           ?></td>
                           <td><?php

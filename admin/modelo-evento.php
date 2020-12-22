@@ -67,7 +67,7 @@ function editar_registro(){
         $stmt = $conn->prepare("UPDATE eventos  set nombre_evento=?, fecha_evento=?, hora_evento=?, id_cat_evento=?,id_inv=?,editado=NOW() where evento_id=?");
         $stmt->bind_param("sssiii", $nombre, $fechaFormateada, $horaFormateada,$categoria_evento,$invitado,$id_registro);
         $stmt->execute();
-        if ($stmt->affected_rows) { //se modifico?
+        if ($stmt->affected_rows){ //se modifico?
             $respuesta = array(
                 'respuesta' => 'correcto',
                 'id_editado' => $id_registro,

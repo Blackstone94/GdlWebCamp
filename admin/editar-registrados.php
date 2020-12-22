@@ -25,10 +25,6 @@
             $stmt=$conn->query("SELECT * FROM registrados WHERE id_registrado=$id");
             $registrado=$stmt->fetch_assoc();
             $boletos=json_decode($registrado['pases_articulos'],true);
-
-            echo "<pre>";
-              var_dump($registrado);
-            echo "</pre>";
           ?>
             <form class="editar-registrados" role="form" method="post" id="modelo-admin" name="crear-evento" action="modelo-registrados.php">
                 <div class="card-body">
@@ -44,7 +40,7 @@
                     <label for="email">E-mail:</label>
                     <input value="<?php echo $registrado['email_registrado']?>" type="e-mail" class="form-control" id="email" name="email" placeholder="Email del registrado">
                   </div>
-                  
+
                   <div class="form-group"><!--tipo de boleto-->
                     <div class="paquetes" id="paquetes">
                       <div class="card-header with-boder">

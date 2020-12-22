@@ -15,7 +15,6 @@
 
   function nuevo_registro(){
     include_once('funciones/funciones.php');
-    //  die(json_encode($_POST));
     $boletos_adquiridos=$_POST['boletos'];
 
     $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
@@ -81,30 +80,28 @@
 
     try{
      // include_once 'funciones/funciones.php';
-      $stmt=$conn->prepare("UPDATE  registrados SET nombre_registrado=?,apellido_registrado=?,email_registrado=?,pases_articulos=?,talleres_registrados=?,regalo=?,total_pagado=?,fecha_registro=NOW() WHERE id_registrado=?");
+      $stmt=$conn->prepare("UPDATE  registrados SET nombre_registrado=?,apellido_registrado=?,email_registrado=?,pases_articulos=?,talleres_registrados=?,regalo=?,total_pagado=?,fecha_registro=NOW(),pagado=1 WHERE id_registrado=?");
       $stmt->bind_param("sssssisi",$nombre,$apellido,$email,$pedido,$talleres,$regalo,$total,$id);
       $stmt->execute();
 
-    if ($stmt->affected_rows) { //se modifico?
-        $respuesta =array(
-          'respuesta'=>'correcto',
-          'id_insertado'=>$id_registro
-        );
-      }else{
-          $respuesta=array(
-            'respuesta'=>'error',
-            'detalle'=>$stmt->error,
-            'pedido'=>$pedido
+      if ($stmt->affected_rows) { //se modifico?
+          $respuesta =array(
+            'respuesta'=>'correcto'
           );
+        }else{
+            $respuesta=array(
+              'respuesta'=>'error',
+              'pedido'=>$pedido
+            );
+        }
+        $stmt->close();
+        $conn->close();
+      }catch(Exception $e){
+        $respuesta=array(
+          'respuesta'=>'error',
+          'detalle'=>$e.getMessage()
+        );
       }
-      $stmt->close();
-      $conn->close();
-    }catch(Exception $e){
-      $respuesta=array(
-        'respuesta'=>'error',
-        'detalle'=>$e.getMessage()
-      );
-    }
 
     die(json_encode($respuesta));
   }
