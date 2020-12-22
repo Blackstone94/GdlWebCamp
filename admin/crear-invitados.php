@@ -28,7 +28,7 @@ include_once('templates/aside.php')?>
                   </div>
                   <div class="form-group">
                     <label for="biografia_invitado">Biografia: </label>
-                    <textarea class="form-control" name="biografia_invitado" id="biografia_invitado"  rows="10" placerholder="Biografia del invitado"></textarea>
+                    <textarea class="form-control" name="biografia_invitado" id="biografia_invitado"  rows="10" placeholder="Biografia del invitado"></textarea>
                   </div>
 
                   <div class="form-group">

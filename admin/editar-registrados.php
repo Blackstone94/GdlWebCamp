@@ -44,11 +44,7 @@
                     <label for="email">E-mail:</label>
                     <input value="<?php echo $registrado['email_registrado']?>" type="e-mail" class="form-control" id="email" name="email" placeholder="Email del registrado">
                   </div>
-                  <?php
-                    echo "<pre>";
-                      var_dump($boletos,true);
-                    echo "</pre>";
-                  ?>
+                  
                   <div class="form-group"><!--tipo de boleto-->
                     <div class="paquetes" id="paquetes">
                       <div class="card-header with-boder">
@@ -117,10 +113,6 @@
                         try {
                             $eventos=$registrado['talleres_registrados'];
                             $id_eventos_registrados=json_decode($eventos,true);
-                            echo "<pre>";
-                              var_dump($id_eventos_registrados,true);
-                            echo "</pre>";
-
 
                             $sql = "SELECT eventos.*,categoria_evento.cat_evento,invitados.nombre_invitado,invitados.apellido_invitado ";
                             $sql .= " FROM eventos ";

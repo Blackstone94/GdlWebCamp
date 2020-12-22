@@ -29,10 +29,9 @@
     $email=$_POST['email'];
     $regalo=$_POST['regalo'];
     $total=$_POST['total_pedido'];
-    $fecha=getdate();
 
     try{
-      include_once 'funciones/funciones.php';
+    //  include_once 'funciones/funciones.php';
       $stmt=$conn->prepare(" INSERT INTO registrados (nombre_registrado,apellido_registrado,email_registrado,pases_articulos,talleres_registrados,regalo,total_pagado,fecha_registro)  VALUES ( ? , ? , ? ,? , ? , ? , ? ,NOW()) ");
       $stmt->bind_param("sssssis",$nombre,$apellido,$email,$pedido,$talleres,$regalo,$total);
       $stmt->execute();
@@ -63,34 +62,50 @@
 
   }
   function editar_registro(){
+    include_once('funciones/funciones.php');
+    //  die(json_encode($_POST));
+    $boletos_adquiridos=$_POST['boletos'];
 
-    $cat_evento=$_POST['cat_evento'];
-    $icono=$_POST['icono'];
+    $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+    $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+
+    $pedido=productos_json($boletos_adquiridos,$camisas,$etiquetas);
+    $talleres=eventos_json($_POST['registro_evento']);
+
+    $nombre=$_POST['nombre'];
+    $apellido=$_POST['apellido'];
+    $email=$_POST['email'];
+    $regalo=$_POST['regalo'];
+    $total=$_POST['total_pedido'];
     $id=$_POST['id_registro'];
 
     try{
-      include_once('funciones/funciones.php');
-
-      $stmt=$conn->prepare("UPDATE categoria_evento  set cat_evento=?,icono=?,editado=NOW() where id_categoria=?");
-      $stmt->bind_param("ssi",$cat_evento,$icono,$id);
-
+     // include_once 'funciones/funciones.php';
+      $stmt=$conn->prepare("UPDATE  registrados SET nombre_registrado=?,apellido_registrado=?,email_registrado=?,pases_articulos=?,talleres_registrados=?,regalo=?,total_pagado=?,fecha_registro=NOW() WHERE id_registrado=?");
+      $stmt->bind_param("sssssisi",$nombre,$apellido,$email,$pedido,$talleres,$regalo,$total,$id);
       $stmt->execute();
-      if($stmt->affected_rows){//se inserto?
+
+    if ($stmt->affected_rows) { //se modifico?
         $respuesta =array(
           'respuesta'=>'correcto',
-          'id_editado'=>$id
+          'id_insertado'=>$id_registro
         );
       }else{
           $respuesta=array(
             'respuesta'=>'error',
-            'detalle'=>$stmt->error
+            'detalle'=>$stmt->error,
+            'pedido'=>$pedido
           );
       }
       $stmt->close();
       $conn->close();
     }catch(Exception $e){
-      echo "Error ".$e.getMessage();
+      $respuesta=array(
+        'respuesta'=>'error',
+        'detalle'=>$e.getMessage()
+      );
     }
+
     die(json_encode($respuesta));
   }
 
