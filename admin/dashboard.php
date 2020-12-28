@@ -88,8 +88,70 @@ include_once 'templates/aside.php'?>
               <a href="lista-registrados.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div><!--fin col-->
-
       </div><!-- fin row-->
+
+      <h2>Regalos</h2>
+      <div class="row">
+
+        <div class="col-lg-3 col-xs-6">
+            <?php
+                $sql="SELECT COUNT(id_registrado) as pulseras FROM registrados WHERE regalo=1";
+                $stmt=$conn->query($sql);
+                $resultado=$stmt->fetch_assoc();
+            ?>
+            <!-- small box -->
+            <div class="small-box bg-teal">
+              <div class="inner">
+                <h3><?php echo $resultado['pulseras']; ?></h3>
+                <p>Pulseras totales</p>
+              </div>
+              <div class="icon">
+                 <i class="fas fa-gift"></i>
+              </div>
+              <a href="lista-registrados.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div><!--fin col-->
+
+          <div class="col-lg-3 col-xs-6">
+            <?php
+                $sql="SELECT COUNT(id_registrado) as etiquetas FROM registrados WHERE regalo=2";
+                $stmt=$conn->query($sql);
+                $resultado=$stmt->fetch_assoc();
+            ?>
+            <!-- small box -->
+            <div class="small-box bg-fuchsia">
+              <div class="inner">
+                <h3><?php echo $resultado['etiquetas']; ?></h3>
+                <p>Etiquetas totales</p>
+              </div>
+              <div class="icon">
+                 <i class="fas fa-gift"></i>
+              </div>
+              <a href="lista-registrados.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div><!--fin col-->
+
+          <div class="col-lg-3 col-xs-6">
+            <?php
+                $sql="SELECT COUNT(id_registrado) as plumas FROM registrados WHERE regalo=3";
+                $stmt=$conn->query($sql);
+                $resultado=$stmt->fetch_assoc();
+            ?>
+            <!-- small box -->
+            <div class="small-box bg-purple">
+              <div class="inner">
+                <h3><?php echo $resultado['plumas']; ?></h3>
+                <p>Plumas totales</p>
+              </div>
+              <div class="icon">
+                 <i class="fas fa-gift"></i>
+              </div>
+              <a href="lista-registrados.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div><!--fin col-->
+
+      </div><!--fin row-->
+
     </section>
   </div>
   <!-- /.content-wrapper -->
