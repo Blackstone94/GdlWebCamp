@@ -42,6 +42,12 @@
 <script src="js/adminlte.min.js"></script>
 <!-- picker selected font awesome--->
 <script src="js/fontawesome-iconpicker.min.js"></script>
+
+<!--graficas-->
+<script src="js/Chart.bundle.min.js"> </script>
+<script src="js/Chart.min.js"> </script>
+
+
 <!-- logueo -->
 <script src="js/login-ajax.js"></script>
 <!--app-->
@@ -49,5 +55,6 @@
 <script src="../js/cotizador.js"></script>
 <!--ajax js-->
 <script src="js/administradores-ajax.js"></script>
+
 </body>
 </html>

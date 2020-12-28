@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded',function(){
-  console.log("ook");
   if(filename()=="registro.php" || filename()=="crear-registrados.php"
   || filename().includes("editar-registrados.php")){
     console.log("entro");
@@ -136,9 +135,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 function filename(){//nombre del archivo actual
   var rutaAbsoluta = self.location.href;
-  console.log(rutaAbsoluta);
   var posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
   var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
-  console.log(rutaRelativa);
   return rutaRelativa;
 }

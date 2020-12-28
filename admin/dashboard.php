@@ -12,6 +12,25 @@ include_once 'templates/aside.php'?>
       <h1>Dashboard</h1>
     </section>
     <section class="content">
+      <div class="card-body">
+        <h2 class="content-header">Graficas</h2>
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-info">
+                <div class="card-header">
+                      <h3 class="card-title">Datos de registros</h3>
+                </div>
+                <div class="card-body">
+                  <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 333px;" width="333" height="250" class="chartjs-render-monitor"></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.card-body -->
+
       <div class="row">
          <div class="col-lg-3 col-xs-6">
           <?php
