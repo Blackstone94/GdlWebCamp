@@ -8,11 +8,7 @@
         </div>
         <div class="ultimos-tweets">
           <h3>Ultimos <span>Tweets</span></h3>
-          <ul>
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet eligendi, adipisci ab eos accusantium at</li>
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet eligendi, adipisci ab eos accusantium at</li>
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet eligendi, adipisci ab eos accusantium at,</li>
-          </ul>
+          <a class="twitter-timeline" data-height="400" href="https://twitter.com/EdgarOr87795490?ref_src=twsrc%5Etfw">Tweets by EdgarOr87795490</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
         <div class="menu">
           <h3>Redes <span>Sociales</span></h3>
